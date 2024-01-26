@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 10:22 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Jan 26, 2024 at 10:19 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `voyageur`
 --
-CREATE DATABASE IF NOT EXISTS `voyageur` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `voyageur`;
 
 -- --------------------------------------------------------
 
@@ -32,7 +30,7 @@ USE `voyageur`;
 CREATE TABLE `airports` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `airport_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `airports`
