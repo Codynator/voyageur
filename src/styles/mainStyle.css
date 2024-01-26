@@ -1,0 +1,29 @@
+  :root {
+    --text: rgb(26, 17, 4);
+    --background: rgb(253, 249, 244);
+    --primary: rgb(223, 144, 45);
+    --secondary: rgb(232, 236, 129);
+    --accent: rgb(203, 230, 91);
+  }
+
+[data-theme="dark"] {
+    --text: rgb(251, 242, 229);
+    --background: rgb(13, 8, 2);
+    --primary: rgb(209, 129, 31);
+    --secondary: rgb(121, 124, 19);
+    --accent: rgb(136, 164, 25);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: var(--primary);
+  height: 5svh;
+}
+
+body {
+  background-color: var(--background);
+}
