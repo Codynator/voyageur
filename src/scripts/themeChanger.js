@@ -20,10 +20,7 @@ const detectColorScheme = () => {
         document.documentElement.setAttribute("data-theme", "dark");
     }
 }
-detectColorScheme();
 
-// Identify the theme button HTML element
-const themeButton = document.querySelector('#theme-btn');
 
 // Function that changes the theme, and sets a localStorage variable to track the theme between page loads
 const switchTheme = () => {
@@ -37,5 +34,8 @@ const switchTheme = () => {
     }    
 }
 
-// Listener for changing themes
+
+detectColorScheme();
+
+const themeButton = document.querySelector('#theme-btn');
 themeButton.addEventListener('click', switchTheme, false);

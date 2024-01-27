@@ -1,29 +1,48 @@
   :root {
-    --text: rgb(26, 17, 4);
-    --background: rgb(253, 249, 244);
-    --primary: rgb(223, 144, 45);
-    --secondary: rgb(232, 236, 129);
-    --accent: rgb(203, 230, 91);
+    --text: #040401;
+    --background: #f7f7e4;
+    --primary: #241c69;
+    --secondary: #23b8b8;
+    --accent: #561273;
   }
 
-[data-theme="dark"] {
-    --text: rgb(251, 242, 229);
-    --background: rgb(13, 8, 2);
-    --primary: rgb(209, 129, 31);
-    --secondary: rgb(121, 124, 19);
-    --accent: rgb(136, 164, 25);
-}
+  [data-theme="dark"] {
+    --text: #fefefb;
+    --background: #131534;
+    --primary: #4982ed;
+    --secondary: #47dc6e;
+    --accent: #bf6fe2;
+  }
 
-* {
-  padding: 0;
-  margin: 0;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-nav {
-  background-color: var(--primary);
-  height: 5svh;
-}
+  body {
+    background-color: var(--background);
+  }
 
-body {
-  background-color: var(--background);
-}
+  nav {
+    background-color: var(--primary);
+    height: 6svh;
+    display: flex;
+  }
+
+  .left-nav {
+    width: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
+    color: var(--text);
+    text-decoration: none;
+    background-color: var(--secondary);
+    margin-inline: 4%;
+  }
