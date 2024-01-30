@@ -1,41 +1,45 @@
-  :root {
-    --text: #040401;
-    --background: #f7f7e4;
-    --primary: #241c69;
-    --secondary: #23b8b8;
-    --accent: #561273;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
 
-  [data-theme="dark"] {
-    --text: #fefefb;
-    --background: #131534;
-    --primary: #4982ed;
-    --secondary: #47dc6e;
-    --accent: #bf6fe2;
-  }
 
-  * {
-    padding: 0;
-    margin: 0;
-  }
+:root {
+  --text: #040401;
+  --background: #f7f7e4;
+  --primary: #241c69;
+  --secondary: #23b8b8;
+  --accent: #561273;
+  --transition_duration: 0.4s;
+}
 
-  body {
-    background-color: var(--background);
-  }
+[data-theme="dark"] {
+  --text: #fefefb;
+  --background: #131534;
+  --primary: #4982ed;
+  --secondary: #47dc6e;
+  --accent: #bf6fe2;
 
-  nav {
-    background-color: var(--primary);
-    height: 6svh;
-    display: flex;
+  #theme-btn {
+    transform: rotateZ(180deg);
   }
+}
 
-  .left-nav {
-    width: 40%;
-    display: flex;
-    align-items: center;
-  }
+* {
+  padding: 0;
+  margin: 0;
+}
 
-  nav a {
+body {
+  background-color: var(--background);
+  transition: var(--transition_duration);
+}
+
+nav {
+  background-color: var(--primary);
+  height: 6svh;
+  display: flex;
+  transition: var(--transition_duration);
+  font-family: 'Space Grotesk', sans-serif;
+
+  a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,5 +48,53 @@
     color: var(--text);
     text-decoration: none;
     background-color: var(--secondary);
+    border-radius: 2rem;
+    transition: background-color var(--transition_duration), color var(--transition_duration);
+  }
+
+  a:hover {
+    background-color: var(--accent);
+  }
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+}
+
+.left-nav {
+  width: 40%;
+
+  a {
     margin-inline: 4%;
   }
+}
+
+.right-nav {
+  width: 60%;
+  justify-content: right;
+
+  a {
+    margin-inline: 2%;
+  }
+
+  #theme-btn {
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition_duration);
+  }
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
