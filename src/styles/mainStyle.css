@@ -3,15 +3,18 @@
 
 :root {
   --text: #040401;
+  --text-alt: #fefefb;
   --background: #f7f7e4;
   --primary: #241c69;
   --secondary: #23b8b8;
-  --accent: #561273;
+  --accent: #8521b1;
   --transition_duration: 0.4s;
+  --nav_height: 6svh;
 }
 
 [data-theme="dark"] {
   --text: #fefefb;
+  --text-alt: #040401;
   --background: #131534;
   --primary: #4982ed;
   --secondary: #47dc6e;
@@ -34,7 +37,7 @@ body {
 
 nav {
   background-color: var(--primary);
-  height: 6svh;
+  height: var(--nav_height);
   display: flex;
   transition: var(--transition_duration);
   font-family: 'Space Grotesk', sans-serif;
@@ -73,10 +76,9 @@ nav > div {
 .right-nav {
   width: 60%;
   justify-content: right;
+  position: relative;
 
-  a {
-    margin-inline: 2%;
-  }
+  
 
   #theme-btn {
     background-color: var(--secondary);
@@ -89,6 +91,43 @@ nav > div {
   }
 }
 
+.menu-container {
+  outline: 1px solid green;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  .menu-icon {
+    background-color: var(--primary);
+    height: fit-content;
+    border-bottom-left-radius: 0.5rem;
+    border-left: 0.2rem solid #fefefb;
+    border-bottom: 0.2rem solid #fefefb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--nav_height) - 0.1rem);
+    width: var(--nav_height);
+    transition: var(--transition_duration) background-color;
+  }
+
+  .menu-content {
+    background-color: var(--primary);
+    transition: var(--transition_duration) background-color;
+    border-left: 0.2rem solid #fefefb;
+    border-bottom: 0.2rem solid #fefefb;
+    border-bottom-left-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    a, button {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
 
 @keyframes rotation {
   0% {
@@ -96,5 +135,32 @@ nav > div {
   }
   100% {
     transform: rotateZ(360deg);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .menu-content a {
+    margin-inline: 2%;
+    margin-bottom: 0 !important;
+  }
+  .menu-content button {
+    margin: 0 !important;
+  }
+  .menu-container {
+    width: 100%;
+    display: block !important;
+    position: static !important;
+  }
+  .menu-icon {
+    display: none !important;
+  }
+  .menu-content {
+    outline: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: right !important;
+    border: none !important;
   }
 }
