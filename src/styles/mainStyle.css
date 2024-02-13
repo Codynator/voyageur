@@ -9,7 +9,7 @@
   --secondary: #23b8b8;
   --accent: #8521b1;
   --transition_duration: 0.4s;
-  --nav_height: 6svh;
+  --nav_height: 8svh;
 }
 
 [data-theme="dark"] {
@@ -33,6 +33,7 @@
 body {
   background-color: var(--background);
   transition: var(--transition_duration);
+  overflow-x: hidden;
 }
 
 nav {
@@ -47,7 +48,7 @@ nav {
     justify-content: center;
     align-items: center;
     width: 10rem;
-    height: 2rem;
+    height: calc(var(--nav_height) * 0.7);
     color: var(--text);
     text-decoration: none;
     background-color: var(--secondary);
@@ -66,28 +67,33 @@ nav > div {
 }
 
 .left-nav {
-  width: 40%;
+  width: 70%;
 
   a {
     margin-inline: 4%;
+    width: 42%;
   }
 }
 
 .right-nav {
-  width: 60%;
+  width: 30%;
   justify-content: right;
   position: relative;
-
-  
 
   #theme-btn {
     background-color: var(--secondary);
     border: none;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: var(--transition_duration);
+    height: calc(var(--nav_height) * 0.7);
+    width: calc(var(--nav_height) * 0.7);
+    display: grid;
+    place-items: center;
+
+    /* svg {
+      width: 48px;
+      height: 48px;
+    } */
   }
 }
 
@@ -96,7 +102,9 @@ nav > div {
   display: flex;
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 0;
+  transform: translateX(calc(100% - var(--nav_height)));
+  transition: transform var(--transition_duration);
 
   .menu-icon {
     background-color: var(--primary);
@@ -118,7 +126,7 @@ nav > div {
     border-left: 0.2rem solid #fefefb;
     border-bottom: 0.2rem solid #fefefb;
     border-bottom-left-radius: 0.5rem;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -128,6 +136,7 @@ nav > div {
     }
   }
 }
+
 
 @keyframes rotation {
   0% {
@@ -139,6 +148,26 @@ nav > div {
 }
 
 @media screen and (min-width: 1000px) {
+  :root {
+    --nav_height: 6svh;
+  }
+
+  .left-nav {
+    width: 40%;
+    a {
+      width: 10rem;
+    }
+  }
+
+  .right-nav {
+    width: 60%;
+
+    #theme-btn > svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
   .menu-content a {
     margin-inline: 2%;
     margin-bottom: 0 !important;
@@ -150,6 +179,7 @@ nav > div {
     width: 100%;
     display: block !important;
     position: static !important;
+    transform: none;
   }
   .menu-icon {
     display: none !important;

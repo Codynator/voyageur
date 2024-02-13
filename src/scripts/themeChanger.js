@@ -35,7 +35,28 @@ const switchTheme = () => {
 }
 
 
+function changeMenuDisplay() {
+    const display = window.getComputedStyle(menuContent).getPropertyValue('display');
+    if (display === 'none') {
+        menuContent.style.display = 'flex';
+        menuContainer.style.transform = 'translateX(0)';
+        return;
+    }
+    menuContainer.style.transform = 'translateX(calc(100% - var(--nav_height)))';
+    setTimeout(() => {menuContent.style.display = 'none'; }, transitionDuration)
+}
+
+
 detectColorScheme();
 
-const themeButton = document.querySelector('#theme-btn');
+const themeButton = document.getElementById('theme-btn');
+const menuIcon = document.querySelector('.menu-icon');
+const menuContent = document.querySelector('.menu-content');
+const menuContainer = document.querySelector('.menu-container');
+const root = document.documentElement;
+let transitionDuration = getComputedStyle(root).getPropertyValue('--transition_duration');
+transitionDuration = parseFloat(transitionDuration.slice(0, -1)) * 1000;
+
+
 themeButton.addEventListener('click', switchTheme, false);
+menuIcon.addEventListener('click', changeMenuDisplay);
