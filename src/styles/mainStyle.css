@@ -1,17 +1,24 @@
-  :root {
-    --text: rgb(26, 17, 4);
-    --background: rgb(253, 249, 244);
-    --primary: rgb(223, 144, 45);
-    --secondary: rgb(232, 236, 129);
-    --accent: rgb(203, 230, 91);
-  }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+
+:root {
+  --text: #040401;
+  --text-alt: #fefefb;
+  --background: #f7f7e4;
+  --primary: #241c69;
+  --secondary: #23b8b8;
+  --accent: #8521b1;
+  --transition_duration: 0.4s;
+  --nav_height: 8svh;
+}
 
 [data-theme="dark"] {
-    --text: rgb(251, 242, 229);
-    --background: rgb(13, 8, 2);
-    --primary: rgb(209, 129, 31);
-    --secondary: rgb(121, 124, 19);
-    --accent: rgb(136, 164, 25);
+  --text: #fefefb;
+  --text-alt: #040401;
+  --background: #131534;
+  --primary: #4982ed;
+  --secondary: #47dc6e;
+  --accent: #bf6fe2;
 }
 
 * {
@@ -19,11 +26,12 @@
   margin: 0;
 }
 
-nav {
-  background-color: var(--primary);
-  height: 5svh;
+html {
+  overflow-x: hidden;
 }
 
 body {
   background-color: var(--background);
+  transition: var(--transition_duration);
+  overflow-x: hidden;
 }

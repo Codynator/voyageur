@@ -20,10 +20,7 @@ const detectColorScheme = () => {
         document.documentElement.setAttribute("data-theme", "dark");
     }
 }
-detectColorScheme();
 
-// Identify the theme button HTML element
-const themeButton = document.querySelector('#theme-btn');
 
 // Function that changes the theme, and sets a localStorage variable to track the theme between page loads
 const switchTheme = () => {
@@ -37,5 +34,29 @@ const switchTheme = () => {
     }    
 }
 
-// Listener for changing themes
+
+function changeMenuDisplay() {
+    const display = window.getComputedStyle(menuContent).getPropertyValue('display');
+    if (display === 'none') {
+        menuContent.style.display = 'flex';
+        menuContainer.style.transform = 'translateX(0)';
+        return;
+    }
+    menuContainer.style.transform = 'translateX(calc(100% - var(--nav_height)))';
+    setTimeout(() => {menuContent.style.display = 'none'; }, transitionDuration)
+}
+
+
+detectColorScheme();
+
+const themeButton = document.getElementById('theme-btn');
+const menuIcon = document.querySelector('.menu-icon');
+const menuContent = document.querySelector('.menu-content');
+const menuContainer = document.querySelector('.menu-container');
+const root = document.documentElement;
+let transitionDuration = getComputedStyle(root).getPropertyValue('--transition_duration');
+transitionDuration = parseFloat(transitionDuration.slice(0, -1)) * 1000;
+
+
 themeButton.addEventListener('click', switchTheme, false);
+menuIcon.addEventListener('click', changeMenuDisplay);
