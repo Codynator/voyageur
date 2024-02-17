@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40svh;
+    background-image: url('../../public/header_bg.svg');
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
