@@ -4,8 +4,64 @@ header {
     align-items: center;
     flex-direction: column;
     height: 40svh;
-    background-image: url('../../public/header_bg.svg');
+    /* background-image: url('../../public/header_bg.svg'); */
+    background-color: darkcyan;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
+    z-index: 3;
+    h2 {
+        color: var(--text-alt);
+    }
+}
+
+.header-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.button-container {
+    position: relative;
+}
+
+.button-container:nth-child(1) > button {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border: 0.2rem solid var(--text);
+    border-bottom: none;
+}
+
+.button-container:nth-child(2) > button {
+    border-inline: 0.2rem solid var(--text);
+}
+
+.button-container:nth-child(3) > button {
+    border-bottom-left-radius: 1rem;
+    border-left: 0.2rem solid var(--text);
+    border-bottom: 0.2rem solid var(--text);
+}
+
+.button-container:nth-child(4) > button {
+    border-bottom-right-radius: 1rem;
+    border-right: 0.2rem solid var(--text);
+    border-bottom: 0.2rem solid var(--text);
+}
+
+.button-container:nth-child(1), .button-container:nth-child(2) {
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.button-container:nth-child(3), .button-container:nth-child(4) {
+    flex-basis: 50%;
+    width: 100%;
+}
+
+.button-container > button {
+    width: 100%;
+    height: 6svh;
+    font-family: 'Space Grotesk', sans-serif;
+    border: none;
 }
