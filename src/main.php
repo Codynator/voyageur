@@ -1,3 +1,9 @@
+<?php
+include('./connection.php');
+
+$mysql = connect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +23,6 @@
             <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
             <a href="./main.php">All Inclusive</a>
             <a href="./main.php">Last Minute</a>
-            <!-- <progress value="25" max="100"></progress> -->
         </div>
         <div class="right-nav">
             <div class="menu-container">
@@ -44,24 +49,41 @@
 
     <header>
         <div>
-            <h2>Where would like to go?</h2>
+            <h2>Where would <i>You</i> like to go?</h2>
 
             <div class="header-container">
                 <div class="button-container">
-                    <button>Select destination</button>
+                    <button>Select destination
+                        <p></p>
+                    </button>
                     <div class="button-menu"></div>
                 </div>
                 <div class="button-container">
-                    <button>From where and how</button>
+                    <button>From where and how
+                        <p></p>
+                    </button>
                     <div class="button-menu"></div>
                 </div>
                 <div class="button-container">
-                    <button>For how long</button>
+                    <button>For how long
+                        <p></p>
+                    </button>
                     <div class="button-menu"></div>
                 </div>
                 <div class="button-container">
-                    <button>For how many people</button>
+                    <button>For how many people
+                        <p></p>
+                    </button>
                     <div class="button-menu"></div>
+                </div>
+
+                <div class="selection-container">
+                    <div class="destination-container">
+
+                    </div>
+                    <div class="from-where-container"></div>
+                    <div class="length-container"></div>
+                    <div class="ammount-container"></div>
                 </div>
 
                 <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -78,7 +100,9 @@
     </header>
 
     <main>
-
+        <dialog>
+            <p>Hello, World!</p>
+        </dialog>
     </main>
 
     <script src="./scripts/themeChanger.js"></script>
@@ -86,3 +110,7 @@
 </body>
 
 </html>
+
+<?php
+$mysql->close();
+?>
