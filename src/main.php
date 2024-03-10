@@ -53,7 +53,7 @@ $mysql = connect();
 
             <div class="header-container">
                 <div class="button-container">
-                    <button>Select destination
+                    <button id="btn-destination">Select destination
                         <p></p>
                     </button>
                     <div class="button-menu"></div>
@@ -95,18 +95,24 @@ $mysql = connect();
                     <input type="text" name="destination" hidden>
                     <input type="text" name="airport" hidden>
                 </form>
+
+                <div class="dialog-container">
+                    <dialog id="dialog-destination">
+                        <h3>Select your destination!</h3>
+                        <button id="btn-destination-close">Close</button>
+                    </dialog>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <dialog>
-            <p>Hello, World!</p>
-        </dialog>
+
     </main>
 
     <script src="./scripts/themeChanger.js"></script>
     <script src="./scripts/searchEngine.js"></script>
+    <script src="./scripts/dialogHandler.js"></script>
 </body>
 
 </html>

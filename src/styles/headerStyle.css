@@ -32,12 +32,17 @@ header {
 }
 
 .header-container input[type='submit'] {
+    margin-top: 2rem;
+    border-radius: 1rem;
     background-color: brown;
     border: none;
     width: 90vw;
     height: 5svh;
     color: var(--text-alt);
     cursor: pointer;
+    font-size: 200%;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
 }
 
 .button-container {
@@ -99,4 +104,23 @@ header {
 .button-container > button > p {
     letter-spacing: 0.05rem;
     font-weight: bold;
+}
+
+dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: .2rem solid var(--text);
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(3px);
+    background-color: var(--primary_transparent);
+    transition: 0.5s;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
 }
