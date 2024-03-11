@@ -12,6 +12,7 @@ header {
     z-index: 3;
 
     h2 {
+        font-family: "Comfortaa", sans-serif;
         color: var(--text-alt);
         border-left: 0.3rem solid var(--text-alt);
         border-top: 0.3rem solid var(--text-alt);
@@ -25,6 +26,7 @@ header {
 }
 
 .header-container {
+    margin-left: 5vw;
     width: 90vw;
     display: flex;
     flex-direction: row;
@@ -119,8 +121,21 @@ dialog {
     backdrop-filter: blur(3px);
     background-color: var(--primary_transparent);
     transition: 0.5s;
+    color: var(--text-alt);
+    align-items: center;
+    flex-direction: column;
 }
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog > h3 {
+    font-size: 300%;
+}
+
+@media screen and (min-width: 1000px) {
+    .header-container {
+        margin-left: 0;
+    }
 }

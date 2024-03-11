@@ -1,7 +1,8 @@
 <?php
 include('./connection.php');
+session_start();
 
-$mysql = connect();
+$conn = connect();
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +100,18 @@ $mysql = connect();
                 <div class="dialog-container">
                     <dialog id="dialog-destination">
                         <h3>Select your destination!</h3>
+                        <form id="form-destination">
+                        <?php
+                            $sqlD = 'SELECT id, country, town FROM destinations';
+                            $resultD = $conn->query($sqlD);
+                            
+                            while ($dest = $resultD->fetch_assoc()) :
+                        ?>
+                            <label><input type='radio' name='destination' value='<?= $dest['id']; ?>'><?= $dest['country'] . " - " . $dest['town']?></label><br>
+                        <?php endwhile ?>
+                        </form>
+                        
+                        <button id="btn-destination-confirm">Confirm</button>
                         <button id="btn-destination-close">Close</button>
                     </dialog>
                 </div>

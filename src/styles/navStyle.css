@@ -36,7 +36,7 @@ nav>div {
 }
 
 .left-nav {
-    width: 95%;
+    width: 80%;
 
     a {
         margin-inline: 1%;
@@ -57,7 +57,7 @@ nav>div {
 }
 
 .right-nav {
-    width: 5%;
+    width: 20%;
     justify-content: right;
     position: relative;
 
