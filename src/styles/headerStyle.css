@@ -1,141 +1,228 @@
+/* --- HEADER --- */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 50svh;
-    /* background-image: url('../../public/header_bg.svg'); */
-    background-color: darkcyan;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50svh;
+  /* background-image: url('../../public/header_bg.svg'); */
+  background-color: darkcyan;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 3;
 
-    h2 {
-        font-family: "Comfortaa", sans-serif;
-        color: var(--text-alt);
-        border-left: 0.3rem solid var(--text-alt);
-        border-top: 0.3rem solid var(--text-alt);
-        border-top-left-radius: 1rem;
-        transition:  color var(--transition_duration), border var(--transition_duration);
-        width: fit-content;
-        padding: .5rem;
-        font-size: 220%;
-        margin-bottom: 2rem;
-    }
+  h2 {
+    font-family: "Comfortaa", sans-serif;
+    color: var(--text-alt);
+    border-left: 0.3rem solid var(--text-alt);
+    border-top: 0.3rem solid var(--text-alt);
+    border-top-left-radius: 1rem;
+    transition: color var(--transition_duration),
+      border var(--transition_duration);
+    width: fit-content;
+    padding: 0.5rem;
+    font-size: 220%;
+    margin-bottom: 2rem;
+  }
 }
 
 .header-container {
-    margin-left: 5vw;
-    width: 90vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  margin-left: 5vw;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.header-container input[type='submit'] {
-    margin-top: 2rem;
-    border-radius: 1rem;
-    background-color: brown;
-    border: none;
-    width: 90vw;
-    height: 5svh;
-    color: var(--text-alt);
-    cursor: pointer;
-    font-size: 200%;
-    letter-spacing: .5rem;
-    text-transform: uppercase;
+.header-container input[type="submit"] {
+  font-family: "Comfortaa", sans-serif;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  background-color: brown;
+  border: none;
+  width: 90vw;
+  height: 5svh;
+  color: var(--text-alt);
+  cursor: pointer;
+  font-size: 200%;
+  letter-spacing: 0.5rem;
 }
 
 .button-container {
-    position: relative;
+  position: relative;
 }
 
 .button-container:nth-child(1) > button {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border: 0.2rem solid var(--text);
-    border-bottom: 0.05rem solid var(--text);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border: 0.2rem solid var(--text);
+  border-bottom: 0.05rem solid var(--text);
 }
 
 .button-container:nth-child(2) > button {
-    border-inline: 0.2rem solid var(--text);
-    border-bottom: 0.05rem solid var(--text);
+  border-inline: 0.2rem solid var(--text);
+  border-bottom: 0.05rem solid var(--text);
 }
 
 .button-container:nth-child(3) > button {
-    border-bottom-left-radius: 1rem;
-    border-left: 0.2rem solid var(--text);
-    border-right: 0.05rem solid var(--text);
-    border-bottom: 0.2rem solid var(--text);
+  border-bottom-left-radius: 1rem;
+  border-left: 0.2rem solid var(--text);
+  border-right: 0.05rem solid var(--text);
+  border-bottom: 0.2rem solid var(--text);
 }
 
 .button-container:nth-child(4) > button {
-    border-bottom-right-radius: 1rem;
-    border-right: 0.2rem solid var(--text);
-    border-bottom: 0.2rem solid var(--text);
+  border-bottom-right-radius: 1rem;
+  border-right: 0.2rem solid var(--text);
+  border-bottom: 0.2rem solid var(--text);
 }
 
-.button-container:nth-child(1), .button-container:nth-child(2) {
-    flex-basis: 100%;
-    width: 100%;
+.button-container:nth-child(1),
+.button-container:nth-child(2) {
+  flex-basis: 100%;
+  width: 100%;
 }
 
-.button-container:nth-child(3), .button-container:nth-child(4) {
-    flex-basis: 50%;
-    width: 100%;
+.button-container:nth-child(3),
+.button-container:nth-child(4) {
+  flex-basis: 50%;
+  width: 100%;
 }
 
 .button-container > button {
-    background-color: var(--background);
-    color: var(--text);
-    width: 100%;
-    height: 7svh;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 120%;
-    border: none;
-    cursor: pointer;
-    transition: background-color var(--transition_duration), color var(--transition_duration);
+  background-color: var(--background);
+  color: var(--text);
+  width: 100%;
+  height: 7svh;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 120%;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition_duration),
+    color var(--transition_duration);
 }
 
 .button-container > button:hover {
-    background-color: var(--accent);
-    color: var(--text-alt);
+  background-color: var(--accent);
+  color: var(--text-alt);
 }
 
 .button-container > button > p {
-    letter-spacing: 0.05rem;
-    font-weight: bold;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
 }
 
+/* --- DIALOG --- */
 dialog {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    border: .2rem solid var(--text);
-    height: 100%;
-    width: 100%;
-    backdrop-filter: blur(3px);
-    background-color: var(--primary_transparent);
-    transition: 0.5s;
-    color: var(--text-alt);
-    align-items: center;
-    flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 0.2rem solid var(--text);
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(3px);
+  background-color: var(--primary_transparent);
+  transition: 0.5s;
+  color: var(--text-alt);
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 dialog > h3 {
-    font-size: 300%;
+  text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 300%;
+}
+
+dialog > button {
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  width: 95%;
+  height: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-container {
+  font-family: "Comfortaa", sans-serif;
+  display: block;
+  position: relative;
+  padding-left: 2.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  user-select: none;
+}
+
+.label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  background-color: #eee;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.checkmark:after {
+    content: " ";
+    display: none;
+    border-radius: 50%;
+    background-color: red;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.label-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.label-container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.label-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+#btn-destination-confirm {
+  background-color: rgb(54, 173, 54);
+  position: absolute;
+  bottom: 5rem;
+}
+
+#btn-destination-close {
+  background-color: rgb(150, 41, 41);
+  position: absolute;
+  bottom: 1rem;
+}
+
+@keyframes selectionAnimation {
+    
 }
 
 @media screen and (min-width: 1000px) {
-    .header-container {
-        margin-left: 0;
-    }
+  .header-container {
+    margin-left: 0;
+  }
 }
