@@ -178,31 +178,42 @@ dialog > button {
   left: 0;
   height: 2rem;
   width: 2rem;
-  background-color: #eee;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  background-color: var(--text);
+  transition: var(--transition_duration) background-color;
 }
 
 .checkmark:after {
     content: " ";
     display: none;
     border-radius: 50%;
-    background-color: red;
+    background-color: var(--text);
     height: 1.5rem;
     width: 1.5rem;
 }
 
 .label-container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: rgb(163, 163, 163);
 }
 
 .label-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: var(--text-alt);
 }
 
 .label-container input:checked ~ .checkmark:after {
     display: block;
+    animation: selectionAnimation .2s ease-out;
+}
+
+[data-theme="dark"] {
+  .checkmark, .checkmark:after {
+    background-color: var(--text-alt);
+  }
+  .label-container input:checked ~ .checkmark {
+    background-color: var(--text);
+  }
 }
 
 #btn-destination-confirm {
@@ -217,8 +228,26 @@ dialog > button {
   bottom: 1rem;
 }
 
+#btn-destination-close, #btn-destination-confirm {
+  border-radius: 1rem;
+  transition: var(--transition_duration) background-color;
+}
+
+#btn-destination-close:hover {
+  background-color: color-mix(in srgb, #962929 80%, #fff 20%);
+}
+
+#btn-destination-confirm:hover {
+  background-color: color-mix(in srgb, #36ad36 80%, #fff 20%)
+}
+
 @keyframes selectionAnimation {
-    
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
 }
 
 @media screen and (min-width: 1000px) {

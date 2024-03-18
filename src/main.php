@@ -123,7 +123,7 @@ mysqli_set_charset($conn, 'utf8');
                         <button id="btn-destination-close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H5V5h14zM17 8.4L13.4 12l3.6 3.6l-1.4 1.4l-3.6-3.6L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7z" />
-                            </svg>Close</button>
+                            </svg>Cancel</button>
                     </dialog>
                 </div>
             </div>
@@ -136,7 +136,8 @@ mysqli_set_charset($conn, 'utf8');
 
     <script src="./scripts/themeChanger.js"></script>
     <script src="./scripts/searchEngine.js"></script>
-    <script src="./scripts/dialogHandler.js"></script>
+    <script src="./scripts/destinationHandler.js"></script>
+    <script src="./scripts/dialogModule.js"></script>
 </body>
 
 </html>
