@@ -6,7 +6,6 @@ const formDestination = document.getElementById('form-destination');
 
 
 destinationOpen.addEventListener('click', () => {openModal(dialogDestination)});
-
 destinationClose.addEventListener('click', () => {
     closeModal(dialogDestination);
     clearForm(formDestination, inputs[1], buttons[0].querySelector('p'));
@@ -14,7 +13,7 @@ destinationClose.addEventListener('click', () => {
 
 destinationConfirm.addEventListener('click', () => {
     closeModal(dialogDestination);
-    const val = formDestination.destination.value;
-    fillInput(inputs[1], buttons[0].querySelector('p'), val);
+    const vals = getValues(formDestination.destination);
+    fillInput(inputs[1], buttons[0].querySelector('p'), vals);
 });
 

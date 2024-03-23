@@ -17,7 +17,20 @@ function clearForm(form, input, par) {
 }
 
 
-function fillInput(input, par, val) {
-    input.value = val;
-    par.innerHTML = val;
+function fillInput(input, par, values) {
+    input.value = values.join(', ');
+    par.innerHTML = values.join(', ');
+}
+
+
+function getValues(inputs) {
+    const values = [];
+
+    for (const input of inputs) {
+        if (input.checked) {
+            values.push(input.value);
+        }
+    }
+
+    return values;
 }

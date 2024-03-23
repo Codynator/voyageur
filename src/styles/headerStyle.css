@@ -178,7 +178,7 @@ dialog > button {
   left: 0;
   height: 2rem;
   width: 2rem;
-  border-radius: 50%;
+  border-radius: 10%;
   display: grid;
   place-items: center;
   background-color: var(--text);
@@ -188,7 +188,7 @@ dialog > button {
 .checkmark:after {
     content: " ";
     display: none;
-    border-radius: 50%;
+    border-radius: 10%;
     background-color: var(--text);
     height: 1.5rem;
     width: 1.5rem;
@@ -216,28 +216,28 @@ dialog > button {
   }
 }
 
-#btn-destination-confirm {
+.btn-dialog-confirm {
   background-color: rgb(54, 173, 54);
   position: absolute;
   bottom: 5rem;
 }
 
-#btn-destination-close {
+.btn-dialog-close {
   background-color: rgb(150, 41, 41);
   position: absolute;
   bottom: 1rem;
 }
 
-#btn-destination-close, #btn-destination-confirm {
+.btn-dialog-close, .btn-dialog-confirm {
   border-radius: 1rem;
   transition: var(--transition_duration) background-color;
 }
 
-#btn-destination-close:hover {
+.btn-dialog-close:hover {
   background-color: color-mix(in srgb, #962929 80%, #fff 20%);
 }
 
-#btn-destination-confirm:hover {
+.btn-dialog-confirm:hover {
   background-color: color-mix(in srgb, #36ad36 80%, #fff 20%)
 }
 
