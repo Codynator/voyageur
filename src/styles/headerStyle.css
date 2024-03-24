@@ -138,9 +138,16 @@ dialog::backdrop {
 }
 
 dialog > h3 {
+  width: 100%;
   text-align: center;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 300%;
+  font-size: 250%;
+  border-bottom: 0.1rem solid var(--text-alt);
+  margin-bottom: 1rem;
+}
+
+dialog > h3:not(:first-child) {
+  margin-top: 2rem;
 }
 
 dialog > button {
@@ -162,7 +169,7 @@ dialog > button {
   position: relative;
   padding-left: 2.5rem;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   user-select: none;
 }
 
@@ -176,8 +183,8 @@ dialog > button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 10%;
   display: grid;
   place-items: center;
@@ -190,8 +197,8 @@ dialog > button {
     display: none;
     border-radius: 10%;
     background-color: var(--text);
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1rem;
+    width: 1rem;
 }
 
 .label-container:hover input ~ .checkmark {
@@ -218,14 +225,11 @@ dialog > button {
 
 .btn-dialog-confirm {
   background-color: rgb(54, 173, 54);
-  position: absolute;
-  bottom: 5rem;
 }
 
 .btn-dialog-close {
   background-color: rgb(150, 41, 41);
-  position: absolute;
-  bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btn-dialog-close, .btn-dialog-confirm {

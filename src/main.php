@@ -95,7 +95,7 @@ mysqli_set_charset($conn, 'utf8');
 
                     
                         <!-- DIALOG DESTINATION -->
-                        <dialog id="dialog-destination">
+                        <dialog>
                             <h3>Select the country</h3>
 
                             <div>
@@ -125,8 +125,8 @@ mysqli_set_charset($conn, 'utf8');
 
 
                         <!-- DIALOG TRANSPORT AND AIRPORT -->
-                        <dialog id="dialog-transport">
-                            <h3>Select the transport</h3>
+                        <dialog>
+                            <h3>Select the type of transport</h3>
 
                             <div>
                                 <?php
@@ -143,9 +143,9 @@ mysqli_set_charset($conn, 'utf8');
                                 <?php endwhile; ?>
                             </div>
 
-                            <h3>Select the airport</h3>
+                            <h3 class='airport-related'>Select the airport</h3>
 
-                            <div>
+                            <div class='airport-related'>
                                 <?php
                                 $sqlAirport = 'SELECT airport_name FROM airports';
                                 $resultAirport = $conn->query($sqlAirport);
