@@ -72,21 +72,6 @@ mysqli_set_charset($conn, 'utf8');
                     </button>
                     <div class="button-menu"></div>
                 </div>
-                <div class="button-container">
-                    <button class='ammount'>For how many people
-                        <p></p>
-                    </button>
-                    <div class="button-menu"></div>
-                </div>
-
-                <div class="selection-container">
-                    <div class="destination-container">
-
-                    </div>
-                    <div class="from-where-container"></div>
-                    <div class="length-container"></div>
-                    <div class="ammount-container"></div>
-                </div>
 
                 <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <input type="submit" value="Search!" name="search-btn">
@@ -155,6 +140,35 @@ mysqli_set_charset($conn, 'utf8');
                                     <label class="label-container">
                                         <?= $airport['airport_name']; ?>
                                         <input type="checkbox" name="airport" value='<?= $airport['airport_name']; ?>'>
+                                        <span class="checkmark"></span>
+                                    </label><br>
+                                <?php endwhile; ?>
+                            </div>
+
+                            <button class="btn-dialog-confirm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M20.71 4.04c.39-.39.39-1.04 0-1.41L18.37.29C18-.1 17.35-.1 16.96.29L15 2.25L18.75 6m-1 1L14 3.25l-10 10V17h3.75z" />
+                                </svg>Confirm</button>
+                            <button class="btn-dialog-close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H5V5h14zM17 8.4L13.4 12l3.6 3.6l-1.4 1.4l-3.6-3.6L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7z" />
+                                </svg>Cancel</button>
+                        </dialog>
+
+                        <!-- DIALOG LENGTH -->
+                        <dialog>
+                            <h3>Select the length of vacation</h3>
+
+                            <div>
+                            <?php
+                                $sqlLength = 'SELECT DISTINCT(length) FROM travels';
+                                $resultLength = $conn->query($sqlLength);
+
+                                while ($length = $resultLength->fetch_assoc()) :
+                                ?>
+                                    <label class="label-container">
+                                        <?= $length['length'] . ' days'; ?>
+                                        <input type="checkbox" name="length" value='<?= $length['length']; ?>'>
                                         <span class="checkmark"></span>
                                     </label><br>
                                 <?php endwhile; ?>

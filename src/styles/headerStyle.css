@@ -67,26 +67,14 @@ header {
 
 .button-container:nth-child(3) > button {
   border-bottom-left-radius: 1rem;
-  border-left: 0.2rem solid var(--text);
-  border-right: 0.05rem solid var(--text);
-  border-bottom: 0.2rem solid var(--text);
-}
-
-.button-container:nth-child(4) > button {
   border-bottom-right-radius: 1rem;
+  border-left: 0.2rem solid var(--text);
   border-right: 0.2rem solid var(--text);
   border-bottom: 0.2rem solid var(--text);
 }
 
-.button-container:nth-child(1),
-.button-container:nth-child(2) {
+.button-container {
   flex-basis: 100%;
-  width: 100%;
-}
-
-.button-container:nth-child(3),
-.button-container:nth-child(4) {
-  flex-basis: 50%;
   width: 100%;
 }
 

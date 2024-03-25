@@ -10,15 +10,15 @@ function closeModal(modal) {
 }
 
 
-function clearForm(form, input, par) {
-    input.innerHTML = '';
+function clearForm(inputs, par) {
     par.innerHTML = '';
-    form.reset();
+    for (const input of inputs) {
+        input.checked = false;
+    }
 }
 
 
-function fillInput(input, par, values) {
-    input.value = values.join(', ');
+function presentValues(par, values) {
     par.innerHTML = values.join(', ');
 }
 
