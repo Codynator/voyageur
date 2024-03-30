@@ -19,7 +19,10 @@ function clearForm(inputs, par) {
 
 
 function presentValues(par, values) {
-    par.innerHTML = values.join(', ');
+    const vals = values.map(function(val) {
+         return val = val.includes('"') ? val.slice(1, -1) : val;
+    });
+    par.innerHTML = vals.join(', ');
 }
 
 

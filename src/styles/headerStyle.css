@@ -4,7 +4,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 50svh;
+  height: 60svh;
   /* background-image: url('../../public/header_bg.svg'); */
   background-color: darkcyan;
   background-position: center;
@@ -37,13 +37,13 @@ header {
 
 .header-container input[type="submit"] {
   font-family: "Comfortaa", sans-serif;
-  margin-top: 2rem;
+  margin-block: 2rem;
   border-radius: 1rem;
   background-color: brown;
   border: none;
   width: 90vw;
-  height: 5svh;
-  color: var(--text-alt);
+  height: 8svh;
+  color: white;
   cursor: pointer;
   font-size: 200%;
   letter-spacing: 0.5rem;
@@ -109,7 +109,7 @@ dialog {
   top: 0;
   bottom: 0;
   margin: auto;
-  border: 0.2rem solid var(--text);
+  border: 0.2rem solid var(--text-alt);
   height: 100%;
   width: 100%;
   backdrop-filter: blur(3px);
@@ -245,5 +245,11 @@ dialog > button {
 @media screen and (min-width: 1000px) {
   .header-container {
     margin-left: 0;
+  }
+  header {
+    height: 50svh;
+  }
+  .header-container input[type="submit"] {
+    height: 5svh;
   }
 }

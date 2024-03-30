@@ -3,7 +3,7 @@ include('./connection.php');
 session_start();
 
 $conn = connect();
-mysqli_set_charset($conn, 'utf8');
+$conn->set_charset('utf8');
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +23,8 @@ mysqli_set_charset($conn, 'utf8');
     <nav>
         <div class="left-nav">
             <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
-            <a href="./main.php">All Inclusive</a>
-            <a href="./main.php">Last Minute</a>
+            <a href="./offers.php?status=all+inclusive">All Inclusive</a>
+            <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>
         <div class="right-nav">
             <div class="menu-container">
@@ -73,7 +73,7 @@ mysqli_set_charset($conn, 'utf8');
                     <div class="button-menu"></div>
                 </div>
 
-                <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <form method="POST" action="./offers.php">
                     <input type="submit" value="Search!" name="search-btn">
 
                     <div class="dialog-container">
@@ -92,7 +92,7 @@ mysqli_set_charset($conn, 'utf8');
                                 ?>
                                     <label class='label-container'>
                                         <?= $dest['country']; ?>
-                                        <input type='checkbox' name='destination' value='<?= $dest['country']; ?>'>
+                                        <input type='checkbox' name='destination[]' value='<?= '"' . $dest['country'] . '"'; ?>'>
                                         <span class='checkmark'></span>
                                     </label><br>
                                 <?php endwhile; ?>
@@ -122,7 +122,7 @@ mysqli_set_charset($conn, 'utf8');
                                 ?>
                                     <label class="label-container">
                                         <?= $transport['type']; ?>
-                                        <input type="checkbox" name='transport' value='<?= $transport['type'] ?>'>
+                                        <input type="checkbox" name='transport[]' value='<?=  '"' . $transport['type'] . '"'?>'>
                                         <span class="checkmark"></span>
                                     </label><br>
                                 <?php endwhile; ?>
@@ -139,7 +139,7 @@ mysqli_set_charset($conn, 'utf8');
                                 ?>
                                     <label class="label-container">
                                         <?= $airport['airport_name']; ?>
-                                        <input type="checkbox" name="airport" value='<?= $airport['airport_name']; ?>'>
+                                        <input type="checkbox" name="airport[]" value='<?= '"' . $airport['airport_name'] . '"'; ?>'>
                                         <span class="checkmark"></span>
                                     </label><br>
                                 <?php endwhile; ?>
@@ -161,14 +161,14 @@ mysqli_set_charset($conn, 'utf8');
 
                             <div>
                             <?php
-                                $sqlLength = 'SELECT DISTINCT(length) FROM travels';
+                                $sqlLength = 'SELECT DISTINCT(length) FROM travels ORDER BY length';
                                 $resultLength = $conn->query($sqlLength);
 
                                 while ($length = $resultLength->fetch_assoc()) :
                                 ?>
                                     <label class="label-container">
                                         <?= $length['length'] . ' days'; ?>
-                                        <input type="checkbox" name="length" value='<?= $length['length']; ?>'>
+                                        <input type="checkbox" name="length[]" value='<?= $length['length']; ?>'>
                                         <span class="checkmark"></span>
                                     </label><br>
                                 <?php endwhile; ?>
@@ -195,7 +195,6 @@ mysqli_set_charset($conn, 'utf8');
 
     <script src="./scripts/themeChanger.js"></script>
     <script src="./scripts/searchEngine.js"></script>
-    <!-- <script src="./scripts/destinationHandler.js"></script> -->
     <script src="./scripts/dialogModule.js"></script>
 </body>
 
