@@ -16,8 +16,9 @@ if (isset($_GET['status'])) {
     $transports = [];
     $length = [];
 
-    $serchQuery = 'SELECT * FROM generalView WHERE';
+    $serchQuery = 'SELECT * FROM generalView';
     $filters = [];
+
     if (isset($_POST['destination'])) {
         $countries = $_POST['destination'];
         array_push($filters, ' country IN(' . join(',', $countries) . ')');
@@ -34,7 +35,10 @@ if (isset($_GET['status'])) {
         $length = $_POST['length'];
         array_push($filters, " length IN(" . join(",", $length) . ")");
     }
-    $serchQuery .= join(' AND', $filters);
+
+    if (!empty($filters)) {
+        $serchQuery .= 'WHERE' . join(' AND', $filters);
+    }
     $searchResult = $conn->query($serchQuery);
 }
 ?>
@@ -48,6 +52,7 @@ if (isset($_GET['status'])) {
     <title>Offers</title>
     <link rel="stylesheet" href="./styles/mainStyle.css">
     <link rel="stylesheet" href="./styles/navStyle.css">
+    <link rel="stylesheet" href="./styles/offersStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 
@@ -82,22 +87,24 @@ if (isset($_GET['status'])) {
     </nav>
 
     <main>
-        <?php if ($searchResult->num_rows > 0) : ?>
-            <?php while ($cardInfo = $searchResult->fetch_assoc()) : ?>
-                <div class='card'>
-                    <h3><?= $cardInfo['title'] ?></h3>
-                    <ul>
-                        <li>Destination: <?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></li>
-                        <li>For: <?= $cardInfo['length']; ?> days</li>
-                        <li>Type of transport: <?= $cardInfo['type']; ?></li>
-                    </ul>
+        <div class="card-container">
+            <?php if ($searchResult->num_rows > 0) : ?>
+                <?php while ($cardInfo = $searchResult->fetch_assoc()) : ?>
+                    <div class='card'>
+                        <h3><?= $cardInfo['title'] ?></h3>
+                        <ul>
+                            <li>Destination: <?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></li>
+                            <li>For: <?= $cardInfo['length']; ?> days</li>
+                            <li>Type of transport: <?= $cardInfo['type']; ?></li>
+                        </ul>
+                    </div>
+                <?php endwhile; ?>
+            <?php else : ?>
+                <div>
+                    <h3>No search results!</h3>
                 </div>
-            <?php endwhile; ?>
-        <?php else : ?>
-            <div>
-                <h3>No search results!</h3>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </main>
 
     <script src="./scripts/themeChanger.js"></script>
