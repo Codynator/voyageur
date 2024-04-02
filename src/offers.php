@@ -93,9 +93,9 @@ if (isset($_GET['status'])) {
                     <div class='card'>
                         <h3><?= $cardInfo['title'] ?></h3>
                         <ul>
-                            <li>Destination: <?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></li>
-                            <li>For: <?= $cardInfo['length']; ?> days</li>
-                            <li>Type of transport: <?= $cardInfo['type']; ?></li>
+                            <li><span>Destination:</span> <?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></li>
+                            <li><span>For:</span> <?= $cardInfo['length']; ?> days</li>
+                            <li><span>Type of transport:</span> <?= $cardInfo['type']; ?></li>
                         </ul>
                     </div>
                 <?php endwhile; ?>
