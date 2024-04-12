@@ -60,8 +60,8 @@ if (isset($_GET['status'])) {
     <nav>
         <div class="left-nav">
             <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
-            <a href="./main.php">All Inclusive</a>
-            <a href="./main.php">Last Minute</a>
+            <a href="./offers.php?status=all+inclusive">All Inclusive</a>
+            <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>
         <div class="right-nav">
             <div class="menu-container">
@@ -90,14 +90,18 @@ if (isset($_GET['status'])) {
         <div class="card-container">
             <?php if ($searchResult->num_rows > 0) : ?>
                 <?php while ($cardInfo = $searchResult->fetch_assoc()) : ?>
+
                     <div class='card'>
-                        <h3><?= $cardInfo['title'] ?></h3>
-                        <ul>
-                            <li><span>Destination:</span> <?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></li>
-                            <li><span>For:</span> <?= $cardInfo['length']; ?> days</li>
-                            <li><span>Type of transport:</span> <?= $cardInfo['type']; ?></li>
-                        </ul>
+                        <a href='./travel.php?title=<?= $cardInfo['title']; ?>'>
+                            <h3><?= $cardInfo['title'] ?></h3>
+                            <ul>
+                                <li>Destination: <span><?= $cardInfo['town'] . ', ' . $cardInfo['country']; ?></span></li>
+                                <li>For: <span><?= $cardInfo['length']; ?> days</span></li>
+                                <li>Type of transport: <span><?= $cardInfo['type']; ?></span></li>
+                            </ul>
+                        </a>
                     </div>
+
                 <?php endwhile; ?>
             <?php else : ?>
                 <div>

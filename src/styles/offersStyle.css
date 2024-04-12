@@ -15,15 +15,28 @@ main {
 }
 
 .card {
-    padding: 2rem;
     font-family: "Comfortaa", sans-serif;
 
     h3 {
         font-size: 200%;
+        margin-bottom: .5em;
+        text-decoration: underline;
+        text-decoration-thickness: .05em;
     }
 
     ul {
         list-style-type: none;
+    }
+
+    a {
+        display: block;
+        color: var(--text-alt);
+        text-decoration: none;
+        padding: 2rem;
+    }
+
+    span {
+        font-weight: bold;
     }
 }
 
