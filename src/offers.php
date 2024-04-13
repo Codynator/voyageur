@@ -10,7 +10,7 @@ if (isset($_GET['status'])) {
     $status = $_GET['status'];
     $searchQuery = 'SELECT * FROM generalView WHERE status LIKE "' . $status . '"';
     $searchResult = $conn->query($searchQuery);
-} else if (isset($_POST['search-btn'])) {
+} else if (isset($_GET['search-btn'])) {
     $countries = [];
     $airports = [];
     $transports = [];
@@ -19,20 +19,20 @@ if (isset($_GET['status'])) {
     $serchQuery = 'SELECT * FROM generalView';
     $filters = [];
 
-    if (isset($_POST['destination'])) {
-        $countries = $_POST['destination'];
+    if (isset($_GET['destination'])) {
+        $countries = $_GET['destination'];
         array_push($filters, ' country IN(' . join(',', $countries) . ')');
     }
-    if (isset($_POST['transport'])) {
-        $transport = $_POST['transport'];
+    if (isset($_GET['transport'])) {
+        $transport = $_GET['transport'];
         array_push($filters, ' type IN(' . join(',', $transport) . ')');
     }
-    if (isset($_POST['airport'])) {
-        $airports = $_POST['airport'];
+    if (isset($_GET['airport'])) {
+        $airports = $_GET['airport'];
         array_push($filters, ' airport_name IN(' . join(',', $airports) . ')');
     }
-    if (isset($_POST['length'])) {
-        $length = $_POST['length'];
+    if (isset($_GET['length'])) {
+        $length = $_GET['length'];
         array_push($filters, " length IN(" . join(",", $length) . ")");
     }
 

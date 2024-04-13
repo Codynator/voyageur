@@ -73,7 +73,7 @@ $conn->set_charset('utf8');
                     <div class="button-menu"></div>
                 </div>
 
-                <form method="POST" action="./offers.php">
+                <form method="GET" action="./offers.php">
                     <input type="submit" value="Search!" name="search-btn">
 
                     <div class="dialog-container">
