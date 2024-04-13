@@ -1,0 +1,45 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container {
+    width: 100%;
+    margin: 0.8rem;
+    color: var(--text-alt);
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: color-mix(in srgb, var(--primary) 30%, var(--secondary) 70%);
+    border: 0.3rem solid var(--text);
+    border-radius: 1rem;
+}
+
+.card {
+    font-family: "Comfortaa", sans-serif;
+
+    h3 {
+        font-size: 200%;
+        margin-bottom: .5em;
+        text-decoration: underline;
+        text-decoration-thickness: .05em;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    a {
+        display: block;
+        color: var(--text-alt);
+        text-decoration: none;
+        padding: 2rem;
+    }
+
+    span {
+        font-weight: bold;
+    }
+}
+
+.card:not(.card:last-child) {
+    border-bottom: 0.2rem solid var(--text);
+}

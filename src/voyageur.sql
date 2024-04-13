@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 26, 2024 at 10:19 PM
+-- Generation Time: Mar 11, 2024 at 10:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -59,7 +59,10 @@ CREATE TABLE `destinations` (
 --
 
 INSERT INTO `destinations` (`id`, `country`, `town`, `transport_type_id`) VALUES
-(1, 'Germany', 'Cochem', 1);
+(1, 'Germany', 'Cochem', 1),
+(2, 'Germany', 'Berlin', 1),
+(3, 'Estonia', 'Tallinn', 2),
+(4, 'Slovakia', 'Bratislava', 3);
 
 -- --------------------------------------------------------
 
@@ -102,6 +105,16 @@ CREATE TABLE `prices` (
   `dis_ticket` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `prices`
+--
+
+INSERT INTO `prices` (`id`, `travel_id`, `base_price`, `ticket`, `dis_ticket`) VALUES
+(1, 1, 10000.00, 999.99, 899.99),
+(2, 2, 6000.00, 499.99, 399.99),
+(3, 3, 9000.00, 699.99, 599.99),
+(4, 4, 4000.00, 399.99, 320.99);
+
 -- --------------------------------------------------------
 
 --
@@ -117,6 +130,16 @@ CREATE TABLE `travels` (
   `status` varchar(20) DEFAULT NULL,
   `airport_id` tinyint(3) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `travels`
+--
+
+INSERT INTO `travels` (`id`, `title`, `description`, `destination_id`, `length`, `status`, `airport_id`) VALUES
+(1, 'Berlin sightseeing', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 2, 7, NULL, 1),
+(2, 'Mountain Adventure', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 4, 5, 'last minute', NULL),
+(3, 'Fairly Castle', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 1, 7, 'all inclusive', 1),
+(4, 'At Baltic\'s Coastline', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 3, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -226,7 +249,7 @@ ALTER TABLE `airports`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -244,13 +267,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `prices`
 --
 ALTER TABLE `prices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `travels`
 --
 ALTER TABLE `travels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `types`

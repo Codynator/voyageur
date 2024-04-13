@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Space+Grotesk:wght@300..700&display=swap');
 
 
 :root {
   --text: #040401;
   --text-alt: #fefefb;
   --background: #f7f7e4;
-  --primary: #241c69;
+  --primary: rgb(36, 28, 105);
+  --primary_transparent: rgba(36, 28, 105, 0.6);
   --secondary: #23b8b8;
   --accent: #8521b1;
   --transition_duration: 0.4s;
@@ -16,8 +17,9 @@
   --text: #fefefb;
   --text-alt: #040401;
   --background: #131534;
-  --primary: #4982ed;
-  --secondary: #47dc6e;
+  --primary: rgb(73, 130, 237);
+  --primary_transparent: rgba(73, 130, 237, 0.6);
+  --secondary: #323fb1;
   --accent: #bf6fe2;
 }
 

@@ -10,6 +10,7 @@ nav {
     display: flex;
     transition: var(--transition_duration);
     font-family: 'Space Grotesk', sans-serif;
+    z-index: 5;
 
     a:not(.logo) {
         display: flex;
@@ -56,7 +57,7 @@ nav>div {
 }
 
 .right-nav {
-    width: 30%;
+    width: 20%;
     justify-content: right;
     position: relative;
 
@@ -79,6 +80,7 @@ nav>div {
     right: 0;
     transform: translateX(calc(100% - var(--nav_height)));
     transition: transform var(--transition_duration);
+    z-index: 10;
 
     .menu-icon {
         background-color: var(--primary);
