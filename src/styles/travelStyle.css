@@ -1,0 +1,22 @@
+main {
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 0rem 0rem 1rem var(--text);
+    border-radius: 1rem;
+}
+
+h2 {
+    font-size: 250%;
+    word-break: break-all;
+    text-align: center;
+}
+
+.status-par {
+    font-size: 170%;
+    text-align: center;
+}
+
+.description-div {
+    font-size: 140%;
+    text-align: justify;
+}

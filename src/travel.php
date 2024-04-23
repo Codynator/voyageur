@@ -23,6 +23,7 @@ if (isset($_GET['title'])) {
     <title>Travel</title>
     <link rel="stylesheet" href="./styles/mainStyle.css">
     <link rel="stylesheet" href="./styles/navStyle.css">
+    <link rel="stylesheet" href="./styles/travelStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 
