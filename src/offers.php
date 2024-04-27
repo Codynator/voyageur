@@ -5,6 +5,7 @@ session_start();
 $conn = connect();
 $conn->set_charset('utf8');
 
+$searchQuery = '';
 
 if (isset($_GET['status'])) {
     $status = $_GET['status'];
@@ -16,7 +17,7 @@ if (isset($_GET['status'])) {
     $transports = [];
     $length = [];
 
-    $serchQuery = 'SELECT * FROM generalView';
+    $searchQuery = 'SELECT * FROM generalView ';
     $filters = [];
 
     if (isset($_GET['destination'])) {
@@ -37,9 +38,9 @@ if (isset($_GET['status'])) {
     }
 
     if (!empty($filters)) {
-        $serchQuery .= 'WHERE' . join(' AND', $filters);
+        $searchQuery .= 'WHERE ' . join(' AND', $filters);
     }
-    $searchResult = $conn->query($serchQuery);
+    $searchResult = $conn->query($searchQuery);
 }
 ?>
 
