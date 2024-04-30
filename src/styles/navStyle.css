@@ -62,6 +62,7 @@ nav>div {
     position: relative;
 
     #theme-btn {
+        cursor: pointer;
         background-color: var(--secondary);
         border: none;
         border-radius: 50%;
