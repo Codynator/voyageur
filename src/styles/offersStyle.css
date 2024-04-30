@@ -16,6 +16,7 @@ main {
 
 .card {
     font-family: "Comfortaa", sans-serif;
+    transition: var(--transition_duration) background-color;
 
     h3 {
         font-size: 200%;
@@ -38,6 +39,10 @@ main {
     span {
         font-weight: bold;
     }
+}
+
+.card:hover {
+    background-color: var(--primary_transparent);
 }
 
 .card:not(.card:last-child) {

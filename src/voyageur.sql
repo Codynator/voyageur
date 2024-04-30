@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 11, 2024 at 10:03 PM
+-- Generation Time: Apr 26, 2024 at 11:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,23 @@ INSERT INTO `destinations` (`id`, `country`, `town`, `transport_type_id`) VALUES
 (2, 'Germany', 'Berlin', 1),
 (3, 'Estonia', 'Tallinn', 2),
 (4, 'Slovakia', 'Bratislava', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `generalView`
+-- (See below for the actual view)
+--
+CREATE TABLE `generalView` (
+`country` varchar(70)
+,`town` varchar(100)
+,`title` varchar(30)
+,`description` varchar(1000)
+,`length` tinyint(3) unsigned
+,`status` varchar(20)
+,`type` varchar(30)
+,`airport_name` varchar(100)
+);
 
 -- --------------------------------------------------------
 
@@ -176,6 +193,15 @@ CREATE TABLE `users` (
   `creation_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Structure for view `generalView`
+--
+DROP TABLE IF EXISTS `generalView`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `generalView`  AS SELECT `d`.`country` AS `country`, `d`.`town` AS `town`, `t`.`title` AS `title`, `t`.`description` AS `description`, `t`.`length` AS `length`, `t`.`status` AS `status`, `ty`.`type` AS `type`, `a`.`airport_name` AS `airport_name` FROM (((`types` `ty` join `destinations` `d` on(`ty`.`id` = `d`.`transport_type_id`)) join `travels` `t` on(`d`.`id` = `t`.`destination_id`)) left join `airports` `a` on(`t`.`airport_id` = `a`.`id`)) ;
+
 --
 -- Indexes for dumped tables
 --
@@ -220,6 +246,7 @@ ALTER TABLE `prices`
 --
 ALTER TABLE `travels`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`),
   ADD KEY `foreign_key_on_destination_id` (`destination_id`),
   ADD KEY `foreign_key_on_airport_id` (`airport_id`);
 
