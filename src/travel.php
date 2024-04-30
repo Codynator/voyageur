@@ -11,7 +11,6 @@ if (isset($_GET['title'])) {
     $travelResult = $conn->query($travelQuery);
     $travelResult = $travelResult->fetch_assoc();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,6 @@ if (isset($_GET['title'])) {
                         <path fill="#fefefb" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
                     </svg>
                 </div>
-
                 <div class="menu-content">
                     <button id="theme-btn" title="Change theme">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -58,12 +56,30 @@ if (isset($_GET['title'])) {
     </nav>
 
     <main>
-        <h2><?= $travelResult['title']; ?></h2>
-        <p class="status-par">Status: <?= empty($travelResult['status']) ? "standard" : $travelResult['status']; ?></p>
+        <h2>
+            <button title='Go back' id='goBack-btn'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="var(--text)" d="M13.5 21H6v-4h7.5c1.93 0 3.5-1.57 3.5-3.5S15.43 10 13.5 10H11v4L4 8l7-6v4h2.5c4.14 0 7.5 3.36 7.5 7.5S17.64 21 13.5 21"/></svg>
+            </button>
+            <?= $travelResult['title']; ?>
+        </h2>
+        <p class="status-par">Status: <?= empty($travelResult['status']) ? "standard" : '<b>' . $travelResult['status'] . '</b>'; ?></p>
         <div class="description-div"><?= $travelResult['description']; ?></div>
+        <div class="summary-div">
+            <h3>Summary</h3>
+            <ul>
+                <li>Country: <b><?= $travelResult['country']; ?></b></li>
+                <li>Town: <b><?= $travelResult['town']; ?></b></li>
+                <li>Length: <b><?= $travelResult['length']; ?> days</b></li>
+                <li>Type of transport: <b><?= $travelResult['type']; ?></b></li>
+                <?php if(!empty($travelResult['airport_name'])) : ?>
+                    <li>Airport: <b><?= $travelResult['airport_name']; ?></b></li>
+                <?php endif; ?>
+            </ul>
+        </div>
     </main>
 
     <script src="./scripts/themeChanger.js"></script>
+    <script src='./scripts/goBack.js'></script>
 </body>
 
 </html>

@@ -3,20 +3,72 @@ main {
     padding: 1rem;
     box-shadow: 0rem 0rem 1rem var(--text);
     border-radius: 1rem;
+    font-size: 150%;
+    font-family: "Comfortaa", sans-serif;
+    color: var(--text);
+    transition: var(--transition_duration) color;
 }
 
 h2 {
-    font-size: 250%;
-    word-break: break-all;
     text-align: center;
+    position: relative;
+    font-size: 250%;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+h2 > button {
+    position: absolute;
+    left: 0;
+    width: 4em;
+    height: 4em;
+    border: none;
+    border-radius: 100%;
+    background-color: var(--secondary);
+    transition: var(--transition_duration) background-color;
+}
+
+h2 > button:hover {
+    background-color: var(--accent);
+}
+
+h2 > button:hover > svg > path {
+    fill: var(--text-alt);
+    transition: var(--transition_duration) fill;
 }
 
 .status-par {
-    font-size: 170%;
     text-align: center;
+    font-size: 180%;
 }
 
 .description-div {
-    font-size: 140%;
     text-align: justify;
+}
+
+.summary-div ul {
+    padding-left: 2rem;
+}
+
+.summary-div h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-top: 1em;
+}
+
+
+@media screen and (max-width: 800px) {
+    h2 > button {
+        position: static;
+        width: 100%;
+        border-radius: 1em;
+        margin-bottom: 2rem;
+    }
+    main {
+        font-size: 130%;
+    }
+    h2 {
+        font-size: 220%;
+    }
+    .status-par {
+        font-size: 140%;
+    }
 }

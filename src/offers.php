@@ -5,7 +5,6 @@ session_start();
 $conn = connect();
 $conn->set_charset('utf8');
 
-$searchQuery = '';
 
 if (isset($_GET['status'])) {
     $status = $_GET['status'];
