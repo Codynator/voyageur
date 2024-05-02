@@ -55,7 +55,7 @@ $conn->set_charset('utf8');
             <input type="email" name="email" placeholder="Enter your email"><br>
             <input type="password" name="firstPassword" placeholder="Enter password"><br>
             <input type="password" name="repeatedPassword" placeholder="Repeat password"><br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Register">
         </form>
         <p><a href="./login.php">Already have an account?</a></p>
     </div>
