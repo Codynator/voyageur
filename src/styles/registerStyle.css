@@ -33,16 +33,12 @@ main {
     margin-top: 1rem;
     background-color: var(--secondary);
     cursor: pointer;
-    position: relative;
-    top: 0;
-    left: 0;
     transition: var(--transition_duration) all;
 }
 
 .register-container input[type="submit"]:hover {
     box-shadow: .2rem .2rem .5rem var(--text);
-    top: -.2rem;
-    left: -.2rem;
+    transform: translateX(-.2rem) translateY(-.2rem);
 }
 
 .register-container input {
@@ -70,6 +66,14 @@ main {
     border-radius: .5rem;
     border-color: var(--text-alt);
     background-color: color-mix(in srgb, var(--primary) 60%, var(--secondary) 40%);
+}
+
+.error-par {
+    margin-top: 1rem;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 90%;
+    word-wrap: break-word;
+    color: rgb(255, 0, 0);
 }
 
 .register-container a {

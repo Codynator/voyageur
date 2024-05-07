@@ -1,9 +1,73 @@
 <?php
 include("./connection.php");
+
+
+function testInput($value) {
+    return htmlspecialchars(stripslashes(trim($value)));
+}
+
+
 session_start();
 
 $conn = connect();
 $conn->set_charset('utf8');
+$errorMsg = "";
+
+if (!empty($_SESSION['user_id'])) {
+    header('Location: ./profile.php');
+}
+
+if (isset($_POST['registerBtn'])) {
+    $firstName = testInput($_POST['firstName']);
+    $lastName = testInput($_POST['lastName']);
+    $email = testInput($_POST['email']);
+    $password = testInput($_POST['firstPassword']);
+    $repeatedPassword = testInput($_POST['repeatedPassword']);
+    
+    if (empty($firstName)) {
+        $errorMsg = "input your first name";
+    } else if (empty($lastName)) {
+        $errorMsg = 'input your last name';
+    } else if (empty($email)) {
+        $errorMsg = 'input your email adress';
+    } else if (empty($password)) {
+        $errorMsg = 'input password';
+    } else if (empty($repeatedPassword)) {
+        $errorMsg = 'repeat the password';
+    } else if (!preg_match('/^[a-zA-Z\'-]+$/', $firstName)) {
+        $errorMsg = "invalid first name";
+    } else if (!preg_match('/^[a-zA-Z\'-]+$/', $lastName)) {
+        $errorMsg = "invalid last name";
+    } else if (!preg_match('/^(?=.*\d).{8,}$/', $password)) {
+        $errorMsg = "password must be at least<br> 8 characters long and<br> contain at least one digit";
+    } else if ($password !== $repeatedPassword) {
+        $errorMsg = "passwords are different";
+    }
+
+    if (empty($errorMsg)) {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        try {
+            $conn->begin_transaction();
+            $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, creation_date) VALUES (?, ?, ?, ?, CURDATE())");
+            $stmt->bind_param('ssss', $firstName, $lastName, $email, $hashedPassword);
+            $stmt->execute();
+    
+            $userId = $conn->insert_id;
+    
+            $conn->commit();
+        } catch (mysqli_sql_exception $e) {
+            $conn->rollback();
+            echo "Err";
+        }
+
+        if ($user) {
+            $_SESSION['user_id'] = $userId;
+            header('Location: ./profile.php');
+            exit;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +76,7 @@ $conn->set_charset('utf8');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel</title>
+    <title>Register</title>
     <link rel="stylesheet" href="./styles/mainStyle.css">
     <link rel="stylesheet" href="./styles/navStyle.css">
     <link rel="stylesheet" href="./styles/registerStyle.css">
@@ -49,13 +113,16 @@ $conn->set_charset('utf8');
 <main>
     <div class="register-container">
         <h2>Create new account</h2>
-        <form action="" method="POST" autocomplete="off">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" autocomplete="off">
             <input type="text" name="firstName" placeholder="Enter your first name"><br>
             <input type="text" name="lastName" placeholder="Enter your last name"><br>
             <input type="email" name="email" placeholder="Enter your email"><br>
             <input type="password" name="firstPassword" placeholder="Enter password"><br>
             <input type="password" name="repeatedPassword" placeholder="Repeat password"><br>
-            <input type="submit" value="Register">
+            <?php if(!empty($errorMsg)) : ?>
+                <p class="error-par"><?= $errorMsg; ?></p>
+            <?php endif; ?>
+            <input type="submit" value="Register" name="registerBtn">
         </form>
         <p><a href="./login.php">Already have an account?</a></p>
     </div>
