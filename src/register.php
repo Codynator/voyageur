@@ -47,21 +47,13 @@ if (isset($_POST['registerBtn'])) {
     if (empty($errorMsg)) {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        try {
-            $conn->begin_transaction();
-            $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, creation_date) VALUES (?, ?, ?, ?, CURDATE())");
-            $stmt->bind_param('ssss', $firstName, $lastName, $email, $hashedPassword);
-            $stmt->execute();
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, creation_date) VALUES (?, ?, ?, ?, CURDATE())");
+        $stmt->bind_param('ssss', $firstName, $lastName, $email, $hashedPassword);
+        $stmt->execute();
     
-            $userId = $conn->insert_id;
-    
-            $conn->commit();
-        } catch (mysqli_sql_exception $e) {
-            $conn->rollback();
-            echo "Err";
-        }
+        $userId = $conn->insert_id;
 
-        if ($user) {
+        if (isset($userId)) {
             $_SESSION['user_id'] = $userId;
             header('Location: ./profile.php');
             exit;

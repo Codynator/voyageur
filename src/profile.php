@@ -1,6 +1,7 @@
 <?php
 session_start();
 var_dump($_SESSION);
+// $_SESSION['user_id'] = "";
 ?>
 
 <!DOCTYPE html>
