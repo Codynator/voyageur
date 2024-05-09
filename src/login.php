@@ -113,7 +113,7 @@ if (isset($_POST['loginBtn'])) {
             <?php endif; ?>
             <input type="submit" value="Login" name="loginBtn">
         </form>
-        <p><a href="./login.php">Don't have an account?</a></p>
+        <p><a href="./register.php">Don't have an account?</a></p>
     </div>
 </main>
 

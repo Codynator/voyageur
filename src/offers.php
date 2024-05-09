@@ -80,7 +80,11 @@ if (isset($_GET['status'])) {
                     </button>
                     <a href="./main.php">Contact</a>
                     <a href="./main.php">Favorites</a>
-                    <a href="./main.php">Log in</a>
+                    <?php if(isset($_SESSION['user_id'])) : ?>
+                        <a href="./profile.php">Profile</a>
+                    <?php else : ?>
+                        <a href="./login.php">Log in</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

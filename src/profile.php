@@ -1,7 +1,12 @@
 <?php
 session_start();
 var_dump($_SESSION);
-// $_SESSION['user_id'] = "";
+// unset($_SESSION['user_id']);
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: main.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
