@@ -10,7 +10,6 @@ if (isset($_GET['remove'])) {
         '" AND f.id_user = ' . $_SESSION['user_id'];
 
     $conn->query($removeQuery);
-    header('Location: ./travel.php?title=' . $_GET['remove']);
 
 } elseif (isset($_GET['add'])) {
     $travelIdQuery = 'SELECT id FROM travels WHERE title LIKE "' . $_GET['add'] . '"';
@@ -18,7 +17,19 @@ if (isset($_GET['remove'])) {
 
     $addQuery = 'INSERT INTO favorites (id_user, id_travel) VALUES (' . $_SESSION['user_id'] . ", $travelId)";
     $conn->query($addQuery);
-    header('Location: ./travel.php?title=' . $_GET['add']);
 }
+?>
 
-exit;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite system</title>
+</head>
+<body>
+    <script>
+        window.history.back();
+    </script>
+</body>
+</html>
