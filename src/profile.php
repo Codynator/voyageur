@@ -15,7 +15,9 @@ if (!isset($_SESSION['user_id'])) {
 $user = "";
 $result = $conn->query('SELECT * FROM users WHERE id = ' . $_SESSION['user_id']);
 $user = $result->fetch_assoc();
-var_dump($user);
+
+$favoriteTravelsQuery = "SELECT t.title FROM travels AS t INNER JOIN favorites AS f ON t.id = f.id_travel WHERE f.id_user = " . $_SESSION['user_id'];
+$favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +26,10 @@ var_dump($user);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your profile</title>
     <link rel="stylesheet" href="./styles/mainStyle.css">
     <link rel="stylesheet" href="./styles/navStyle.css">
+    <link rel="stylesheet" href="./styles/profileStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 
@@ -62,7 +65,7 @@ var_dump($user);
     <main>
         <div class="profile-container">
             <div class='profile-header'>
-                <h2>Welcome <?= $user['first_name']; ?>!</h2>
+                <h2>Welcome, <?= $user['first_name']; ?>!</h2>
             </div>
             <div class="profile-data">
                 <h3>Your data:</h3>
@@ -73,12 +76,50 @@ var_dump($user);
                     <li>Account creation date: <b><?= $user['creation_date']; ?></b></li>
                 </ul>
             </div>
-            <div class="profile-favorites"></div>
-            <div class="profile-bought-travels"></div>
+            <div class="profile-favorites">
+                <h3>Your favorites:</h3>
+                <?php if ($favoriteTravelsResult->num_rows > 0) : ?>
+                    <?php while ($travelTitle = $favoriteTravelsResult->fetch_assoc()['title']) : ?>
+                        <a href="./travel.php?title=<?= $travelTitle; ?>"><?= $travelTitle; ?></a>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p>Nothing has been found</p>
+                <?php endif; ?>
+            </div>
+            <div class="profile-bought-travels">
+                <h3>Purchase history</h3>
+            </div>
+            <div class="profile-btn-container">
+                <form action="./logoutAndDeletionHandler.php" method="POST">
+                    <button type="submit" name="btn" value="logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z" />
+                        </svg>
+                        Logout
+                    </button>
+                    <button type="button" id="delete-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z" />
+                        </svg>
+                        Delete account
+                    </button>
+                    <div class="confirmation-div">
+                        <label>Enter password to delete account:<br>
+                            <input type="password" name="deletionPassword">
+                        </label>
+                        <button type="submit" name='btn' value="delete">Confirm</button>
+                        <button type="button" id="cancel-btn">Cancel</button>
+                        <?php if (isset($_GET['errorMsg'])) : ?>
+                            <p><?= $_GET['errorMsg']; ?></p>
+                        <?php endif; ?>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
     <script src="./scripts/themeChanger.js"></script>
+    <script src="./scripts/accountDeletionWindowHandler.js"></script>
 </body>
 
 </html>
