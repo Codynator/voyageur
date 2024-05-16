@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 11:03 PM
+-- Generation Time: May 11, 2024 at 12:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,25 @@ INSERT INTO `destinations` (`id`, `country`, `town`, `transport_type_id`) VALUES
 (2, 'Germany', 'Berlin', 1),
 (3, 'Estonia', 'Tallinn', 2),
 (4, 'Slovakia', 'Bratislava', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `id_travel` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `id_user`, `id_travel`) VALUES
+(6, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -155,8 +174,8 @@ CREATE TABLE `travels` (
 INSERT INTO `travels` (`id`, `title`, `description`, `destination_id`, `length`, `status`, `airport_id`) VALUES
 (1, 'Berlin sightseeing', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 2, 7, NULL, 1),
 (2, 'Mountain Adventure', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 4, 5, 'last minute', NULL),
-(3, 'Fairly Castle', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 1, 7, 'all inclusive', 1),
-(4, 'At Baltic\'s Coastline', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 3, 4, NULL, NULL);
+(3, 'Fairly castle', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 1, 7, 'all inclusive', 1),
+(4, 'Coastline of Baltic', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa optio adipisci dolorem labore facere officiis cum consectetur, facilis obcaecati suscipit, et laudantium voluptate, consequuntur harum? Nulla, quas cum magnam repellat rem iusto inventore dolorum, ipsum ratione dolore mollitia rerum fugit repellendus amet nemo qui optio magni laboriosam tempora numquam? Numquam eum ex quia! Mollitia ipsam nemo harum asperiores consequatur sint recusandae vero saepe corporis laboriosam numquam dolorem at qui labore, nobis adipisci ducimus accusantium a pariatur quisquam sapiente libero odit aspernatur earum? Quaerat consequuntur dolor aut, ducimus et id distinctio ratione quis, magni itaque fuga repellendus autem est excepturi?', 3, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -189,9 +208,16 @@ CREATE TABLE `users` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(256) NOT NULL,
-  `phone_number` varchar(15) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `creation_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `creation_date`) VALUES
+(1, 'Douglas', 'McKinner', 'douglas@gmail.com', '$2y$10$cbYUQir/n.6NpNVT3zXl3.q8zrOlEjXAd.RCeZ0nEkBFViDziyRLK', '2024-05-07');
 
 -- --------------------------------------------------------
 
@@ -218,6 +244,13 @@ ALTER TABLE `airports`
 ALTER TABLE `destinations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `foreign_key_on_transport_type_id` (`transport_type_id`);
+
+--
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `foreign_key_on_travels_id` (`id_user`);
 
 --
 -- Indexes for table `images`
@@ -279,6 +312,12 @@ ALTER TABLE `destinations`
   MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
@@ -312,7 +351,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -323,6 +362,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `destinations`
   ADD CONSTRAINT `foreign_key_on_transport_type_id` FOREIGN KEY (`transport_type_id`) REFERENCES `types` (`id`);
+
+--
+-- Constraints for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `travels` (`id`);
 
 --
 -- Constraints for table `images`

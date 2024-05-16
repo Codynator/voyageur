@@ -1,0 +1,90 @@
+main {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.register-container {
+    background-color: color-mix(in srgb, var(--primary) 50%, var(--secondary) 50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 190%;
+    color: var(--text-alt);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: .2rem .2rem 1rem var(--text);
+    transition: var(--transition_duration);
+    min-width: 505px;
+}
+
+.register-container h2 {
+    margin-bottom: .5em;
+    font-family: "Space Grotesk", sans-serif;
+    text-align: center;
+}
+
+.register-container input[type="submit"] {
+    width: 100%;
+    font-size: 100%;
+    border: none;
+    margin-top: 1rem;
+    background-color: var(--secondary);
+    cursor: pointer;
+    transition: var(--transition_duration) all;
+}
+
+.register-container input[type="submit"]:hover {
+    box-shadow: .2rem .2rem .5rem var(--text);
+    transform: translateX(-.2rem) translateY(-.2rem);
+}
+
+.register-container input {
+    color: var(--text-alt);
+    background-color: rgba(0, 0, 0, 0);
+    font-family: "Comfortaa", sans-serif;
+    font-size: 75%;
+    text-align: center;
+    padding-block: .5rem;
+    padding-inline: 1rem;
+    width: calc(100% - 2rem);
+    margin-bottom: 1rem;
+    border: 0.15rem solid rgba(0, 0, 0, 0);
+    border-bottom: 0.15rem solid var(--text);
+    transition: var(--transition_duration) all;
+}
+
+.register-container input::placeholder {
+    color: color-mix(in srgb, var(--text-alt) 80%, var(--primary) 20%);
+    transition: var(--transition_duration) color;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-radius: .5rem;
+    border-color: var(--text-alt);
+    background-color: color-mix(in srgb, var(--primary) 60%, var(--secondary) 40%);
+}
+
+.error-par {
+    margin-top: 1rem;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 90%;
+    word-wrap: break-word;
+    color: rgb(255, 0, 0);
+}
+
+.register-container a {
+    color: var(--text-alt);
+    font-family: "Space Grotesk", sans-serif;
+    transition: var(--transition_duration) color;
+}
+
+
+@media screen and (max-width: 505px) {
+    .register-container {
+        border-radius: 0;
+    }
+}

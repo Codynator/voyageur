@@ -16,22 +16,34 @@ h2 {
     font-family: "Space Grotesk", sans-serif;
 }
 
-h2 > button {
+h2 button {
     position: absolute;
-    left: 0;
     width: 4em;
     height: 4em;
     border: none;
     border-radius: 100%;
     background-color: var(--secondary);
     transition: var(--transition_duration) background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h2 > button:hover {
+h2 > #goBack-btn {
+    left: 0;
+}
+
+h2 > form {
+    position: absolute;
+    right: 0;
+    width: 1em;
+}
+
+h2 button:hover {
     background-color: var(--accent);
 }
 
-h2 > button:hover > svg > path {
+h2 button:hover > svg > path {
     fill: var(--text-alt);
     transition: var(--transition_duration) fill;
 }
@@ -56,11 +68,15 @@ h2 > button:hover > svg > path {
 
 
 @media screen and (max-width: 800px) {
-    h2 > button {
+    h2 button {
         position: static;
         width: 100%;
         border-radius: 1em;
         margin-bottom: 2rem;
+    }
+    h2 > form {
+        width: 100%;
+        position: static;
     }
     main {
         font-size: 130%;

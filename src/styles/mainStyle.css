@@ -11,6 +11,7 @@
   --accent: #8521b1;
   --transition_duration: 0.4s;
   --nav_height: 8svh;
+  --nav_min_size: 50px;
 }
 
 [data-theme="dark"] {
