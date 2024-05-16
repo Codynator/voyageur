@@ -29,6 +29,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
     <link rel="stylesheet" href="./styles/mainStyle.css">
     <link rel="stylesheet" href="./styles/navStyle.css">
     <link rel="stylesheet" href="./styles/profileStyle.css">
+    <link rel="stylesheet" href="./styles/footerStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 
@@ -122,6 +123,11 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
             </div>
         </div>
     </main>
+
+    <footer>
+        <h3>Voyager &copy 2024</h3>
+        <p>Website made by Nataniel Krzempek as a school project.<br><br>The coincidences of the names of the travels, their descriptions as well as other data are coincidental.</p>
+    </footer>
 
     <script src="./scripts/themeChanger.js"></script>
     <script src="./scripts/accountDeletionWindowHandler.js"></script>

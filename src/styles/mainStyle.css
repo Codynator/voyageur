@@ -12,6 +12,7 @@
   --transition_duration: 0.4s;
   --nav_height: 8svh;
   --nav_min_size: 50px;
+  --footer_height: 15svh;
 }
 
 [data-theme="dark"] {
@@ -37,4 +38,10 @@ body {
   background-color: var(--background);
   transition: var(--transition_duration);
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --footer_height: 20svh
+  }
 }

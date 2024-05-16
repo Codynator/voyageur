@@ -8,13 +8,13 @@ main {
     color: var(--text);
     font-family: "Comfortaa", sans-serif;
     width: 50%;
-    margin-top: 2rem;
+    margin-block: 2rem;
     border-radius: 1rem;
     display: grid;
     grid:
      "header header" calc(3em + 1rem)
      "data favorites" min(11em)
-     "bought bought" min(6em)
+     "bought bought" min(15em)
      "menu menu" min(4em)
      / 50% 50%;
     font-size: 150%;

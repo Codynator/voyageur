@@ -1,0 +1,33 @@
+footer {
+    background-color: var(--primary);
+    color: var(--text-alt);
+    font-size: 120%;
+    font-family: "Comfortaa", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: var(--footer_height);
+    transition: var(--transition_duration) background-color, var(--transition_duration) color;
+}
+
+footer > h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: .7em;
+}
+
+footer > p {
+    text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+    footer {
+        font-size: 110%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    footer {
+        font-size: 100%;
+    }
+}
