@@ -200,7 +200,7 @@ $conn->set_charset('utf8');
 
     <footer>
         <h3>Voyager &copy 2024</h3>
-        <p>Website made by Nataniel Krzempek as a school project.<br>The coincidences of the names of the travels, their descriptions as well as other data are coincidental.</p>
+        <p>Website made by Nataniel Krzempek as a school project.<br><br>The coincidences of the names of the travels, their descriptions as well as other data are coincidental.</p>
     </footer>
 
     <script src="./scripts/themeChanger.js"></script>

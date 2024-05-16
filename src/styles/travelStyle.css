@@ -1,5 +1,6 @@
 main {
-    margin: 1rem;
+    margin-inline: 1rem;
+    margin-block: 4rem;
     padding: 1rem;
     box-shadow: 0rem 0rem 1rem var(--text);
     border-radius: 1rem;
