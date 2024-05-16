@@ -106,9 +106,9 @@ if (isset($_POST['registerBtn'])) {
     <div class="register-container">
         <h2>Create new account</h2>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" autocomplete="off">
-            <input type="text" name="firstName" placeholder="Enter your first name"><br>
-            <input type="text" name="lastName" placeholder="Enter your last name"><br>
-            <input type="email" name="email" placeholder="Enter your email"><br>
+            <input type="text" name="firstName" placeholder="Enter your first name" value="<?= isset($firstName) ? $firstName : '' ?>"><br>
+            <input type="text" name="lastName" placeholder="Enter your last name" value="<?= isset($lastName) ? $lastName : '' ?>"><br>
+            <input type="email" name="email" placeholder="Enter your email" value="<?= isset($email) ? $email : '' ?>"><br>
             <input type="password" name="firstPassword" placeholder="Enter password"><br>
             <input type="password" name="repeatedPassword" placeholder="Repeat password"><br>
             <?php if(!empty($errorMsg)) : ?>

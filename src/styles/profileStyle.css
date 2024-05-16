@@ -74,6 +74,11 @@ main {
     margin-left: .5rem;
 }
 
+.profile-favorites > p {
+    margin-top: .5rem;
+    text-align: center;
+}
+
 .profile-favorites a {
     display: block;
     color: var(--text-alt);

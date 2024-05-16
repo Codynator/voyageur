@@ -1,11 +1,10 @@
 <?php
-include("./connection.php");
+include ("./connection.php");
 
 
 session_start();
 $conn = connect();
 $conn->set_charset('utf8');
-// unset($_SESSION['user_id']);
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: main.php');
@@ -52,7 +51,8 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
                 <div class="menu-content">
                     <button id="theme-btn" title="Change theme">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="var(--text)" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8z" />
+                            <path fill="var(--text)"
+                                d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8z" />
                         </svg>
                     </button>
                     <a href="./main.php">Contact</a>
@@ -78,11 +78,14 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
             </div>
             <div class="profile-favorites">
                 <h3>Your favorites:</h3>
-                <?php if ($favoriteTravelsResult->num_rows > 0) : ?>
-                    <?php while ($travelTitle = $favoriteTravelsResult->fetch_assoc()['title']) : ?>
-                        <a href="./travel.php?title=<?= $travelTitle; ?>"><?= $travelTitle; ?></a>
+                <?php if ($favoriteTravelsResult->num_rows > 0): ?>
+                    <?php while ($row = $favoriteTravelsResult->fetch_assoc()): ?>
+                        <?php if ($row && isset($row['title'])): ?>
+                            <a href="./travel.php?title=<?= $row['title']; ?>"><?= $row['title']; ?></a>
+                        <?php endif; ?>
                     <?php endwhile; ?>
-                <?php else : ?>
+
+                <?php else: ?>
                     <p>Nothing has been found</p>
                 <?php endif; ?>
             </div>
@@ -93,13 +96,15 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
                 <form action="./logoutAndDeletionHandler.php" method="POST">
                     <button type="submit" name="btn" value="logout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="m17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z" />
+                            <path fill="currentColor"
+                                d="m17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z" />
                         </svg>
                         Logout
                     </button>
                     <button type="button" id="delete-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z" />
+                            <path fill="currentColor"
+                                d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z" />
                         </svg>
                         Delete account
                     </button>
@@ -109,7 +114,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
                         </label>
                         <button type="submit" name='btn' value="delete">Confirm</button>
                         <button type="button" id="cancel-btn">Cancel</button>
-                        <?php if (isset($_GET['errorMsg'])) : ?>
+                        <?php if (isset($_GET['errorMsg'])): ?>
                             <p><?= $_GET['errorMsg']; ?></p>
                         <?php endif; ?>
                     </div>
