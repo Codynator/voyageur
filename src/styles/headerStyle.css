@@ -5,7 +5,7 @@ header {
   align-items: center;
   flex-direction: column;
   height: 60svh;
-  background-image: url('../../public/pexels-raybilcliff-1507754.jpg');
+  background-image: url("../../public/pexels-raybilcliff-1507754.jpg");
   background-color: darkcyan;
   background-position: center;
   background-size: cover;
@@ -14,16 +14,16 @@ header {
 
   h2 {
     font-family: "Comfortaa", sans-serif;
-    color: var(--text-alt);
-    border-left: 0.3rem solid var(--text-alt);
-    border-top: 0.3rem solid var(--text-alt);
+    color: white;
+    border-left: 0.3rem solid white;
+    border-top: 0.3rem solid white;
     border-top-left-radius: 1rem;
-    transition: color var(--transition_duration),
-      border var(--transition_duration);
+    border-bottom-right-radius: 1rem;
     width: fit-content;
     padding: 0.5rem;
     font-size: 220%;
     margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -39,14 +39,21 @@ header {
   font-family: "Comfortaa", sans-serif;
   margin-block: 2rem;
   border-radius: 1rem;
-  background-color: brown;
-  border: none;
+  background-color: rgb(228, 53, 53);
+  border: 0.2rem solid var(--text);
   width: 90vw;
   height: 8svh;
-  color: white;
+  color: var(--text);
   cursor: pointer;
   font-size: 200%;
   letter-spacing: 0.5rem;
+  transition: var(--transition_duration) color,
+    var(--transition_duration) border-color,
+    var(--transition_duration) background-color;
+}
+
+.header-container input[type="submit"]:hover {
+  background-color: color-mix(in srgb, red 50%, var(--text-alt) 50%);
 }
 
 .button-container {
@@ -79,7 +86,8 @@ header {
 }
 
 .button-container > button {
-  background-color: var(--background);
+  background-color: var(--background_transparent);
+  backdrop-filter: blur(5px);
   color: var(--text);
   width: 100%;
   height: 7svh;
@@ -88,12 +96,12 @@ header {
   border: none;
   cursor: pointer;
   transition: background-color var(--transition_duration),
-    color var(--transition_duration);
+    letter-spacing var(--transition_duration);
 }
 
 .button-container > button:hover {
-  background-color: var(--accent);
-  color: var(--text-alt);
+  background-color: var(--hover_color);
+  letter-spacing: 0.1rem;
 }
 
 .button-container > button > p {
@@ -101,146 +109,6 @@ header {
   font-weight: bold;
 }
 
-/* --- DIALOG --- */
-dialog {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  border: 0.2rem solid var(--text-alt);
-  height: 100%;
-  width: 100%;
-  backdrop-filter: blur(3px);
-  background-color: var(--primary_transparent);
-  transition: 0.5s;
-  color: var(--text-alt);
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-}
-
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-dialog > h3 {
-  width: 100%;
-  text-align: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 250%;
-  border-bottom: 0.1rem solid var(--text-alt);
-  margin-bottom: 1rem;
-}
-
-dialog > h3:not(:first-child) {
-  margin-top: 2rem;
-}
-
-dialog > button {
-  margin-top: 1rem;
-  border: none;
-  cursor: pointer;
-  font-family: "Space Grotesk", sans-serif;
-  width: 95%;
-  height: 3rem;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.label-container {
-  font-family: "Comfortaa", sans-serif;
-  display: block;
-  position: relative;
-  padding-left: 2.5rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-  user-select: none;
-}
-
-.label-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 10%;
-  display: grid;
-  place-items: center;
-  background-color: var(--text);
-  transition: var(--transition_duration) background-color;
-}
-
-.checkmark:after {
-    content: " ";
-    display: none;
-    border-radius: 10%;
-    background-color: var(--text);
-    height: 1rem;
-    width: 1rem;
-}
-
-.label-container:hover input ~ .checkmark {
-  background-color: rgb(163, 163, 163);
-}
-
-.label-container input:checked ~ .checkmark {
-  background-color: var(--text-alt);
-}
-
-.label-container input:checked ~ .checkmark:after {
-    display: block;
-    animation: selectionAnimation .2s ease-out;
-}
-
-[data-theme="dark"] {
-  .checkmark, .checkmark:after {
-    background-color: var(--text-alt);
-  }
-  .label-container input:checked ~ .checkmark {
-    background-color: var(--text);
-  }
-}
-
-.btn-dialog-confirm {
-  background-color: rgb(54, 173, 54);
-}
-
-.btn-dialog-close {
-  background-color: rgb(150, 41, 41);
-  margin-bottom: 1rem;
-}
-
-.btn-dialog-close, .btn-dialog-confirm {
-  border-radius: 1rem;
-  transition: var(--transition_duration) background-color;
-}
-
-.btn-dialog-close:hover {
-  background-color: color-mix(in srgb, #962929 80%, #fff 20%);
-}
-
-.btn-dialog-confirm:hover {
-  background-color: color-mix(in srgb, #36ad36 80%, #fff 20%)
-}
-
-@keyframes selectionAnimation {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-}
 
 @media screen and (min-width: 1000px) {
   .header-container {
