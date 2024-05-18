@@ -47,9 +47,9 @@ header {
   cursor: pointer;
   font-size: 200%;
   letter-spacing: 0.5rem;
-  transition: var(--transition_duration) color,
+  transition: var(--transition_duration) background-color,
     var(--transition_duration) border-color,
-    var(--transition_duration) background-color;
+    var(--transition_duration) color;
 }
 
 .header-container input[type="submit"]:hover {

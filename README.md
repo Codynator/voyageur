@@ -9,3 +9,4 @@ Created using XAMPP server (Apache + MariaDB).
 ## List of used images
 
 - <https://www.pexels.com/photo/beach-near-island-with-lighthouse-1507754/>
+- <https://www.pexels.com/photo/black-mountains-under-the-stars-at-nighttime-355465/>

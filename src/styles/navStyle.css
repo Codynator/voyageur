@@ -12,6 +12,7 @@ nav {
     font-family: 'Space Grotesk', sans-serif;
     z-index: 5;
     min-height: var(--nav_min_size);
+    position: relative;
 
     a:not(.logo) {
         display: flex;
