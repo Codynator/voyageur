@@ -27,6 +27,14 @@ for (const [index, dialog] of dialogs.entries()) {
         closeModal(dialog);
     });
 
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            clearForm(inputs[index], buttons[index].querySelector('p'));
+            closeModal(dialog);
+        }
+    });
+
     dialogsConfirm[index].addEventListener('click', (event) => {
         event.preventDefault();
         const selectedVals = getValues(inputs[index]);

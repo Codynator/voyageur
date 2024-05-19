@@ -91,6 +91,8 @@ if (isset($_GET['status'])) {
         </div>
     </nav>
 
+    <div class="background-div"></div>
+
     <main>
         <div class="card-container">
             <?php if ($searchResult->num_rows > 0) : ?>

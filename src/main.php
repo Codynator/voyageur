@@ -17,6 +17,7 @@ $conn->set_charset('utf8');
     <link rel="stylesheet" href="./styles/navStyle.css">
     <link rel="stylesheet" href="./styles/headerStyle.css">
     <link rel="stylesheet" href="./styles/footerStyle.css">
+    <link rel="stylesheet" href="./styles/dialogStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 

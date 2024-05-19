@@ -1,23 +1,28 @@
 main {
+    position: relative;
     display: flex;
     justify-content: center;
     margin-bottom: 4rem;
+    z-index: 2;
 }
 
 .card-container {
-    width: 100%;
+    width: 80%;
     margin: 0.8rem;
-    color: var(--text-alt);
     display: grid;
     grid-template-columns: 100%;
-    background-color: color-mix(in srgb, var(--primary) 30%, var(--secondary) 70%);
-    border: 0.3rem solid var(--text);
+    /* background-color: color-mix(in srgb, var(--primary) 30%, var(--secondary) 70%); */
+    background-color: var(--card_container_color);
+    border: 0.3rem solid white;
     border-radius: 1rem;
+    transition: var(--transition_duration) background-color;
+    backdrop-filter: blur(3px);
 }
 
 .card {
     font-family: "Comfortaa", sans-serif;
     transition: var(--transition_duration) background-color;
+    text-align: center;
 
     h3 {
         font-size: 200%;
@@ -32,7 +37,7 @@ main {
 
     a {
         display: block;
-        color: var(--text-alt);
+        color: white;
         text-decoration: none;
         padding: 2rem;
     }
@@ -47,5 +52,28 @@ main {
 }
 
 .card:not(.card:last-child) {
-    border-bottom: 0.2rem solid var(--text);
+    border-bottom: 0.2rem solid white;
+}
+
+.background-div {
+    z-index: 1;
+    background-color: red;
+    background-image: url("../../public/pexels-pixabay-355465.jpg");
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    backdrop-filter: contrast(180%);
+}
+
+@media screen and (max-width: 1000px) {
+    .card-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card-container {
+        font-size: 90%;
+    }
 }

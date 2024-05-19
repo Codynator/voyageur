@@ -1,6 +1,8 @@
 footer {
+    position: relative;
+    z-index: 10;
     background-color: var(--primary);
-    color: var(--text-alt);
+    color: white;
     font-size: 120%;
     font-family: "Comfortaa", sans-serif;
     display: flex;

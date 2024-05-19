@@ -4,25 +4,31 @@
 :root {
   --text: #040401;
   --text-alt: #fefefb;
-  --background: #f7f7e4;
-  --primary: rgb(36, 28, 105);
+  --background: white;
+  --background_transparent: rgba(231, 231, 231, 0.8);
+  --primary: rgb(50, 40, 141);
   --primary_transparent: rgba(36, 28, 105, 0.6);
   --secondary: #23b8b8;
-  --accent: #8521b1;
+  --accent: #83d8d8;
   --transition_duration: 0.4s;
   --nav_height: 8svh;
   --nav_min_size: 50px;
   --footer_height: 15svh;
+  --hover_color: rgb(255, 255, 255);
+  --card_container_color: rgba(68, 132, 228, 0.8);
 }
 
 [data-theme="dark"] {
-  --text: #fefefb;
+  --text: #e0e0e0;
   --text-alt: #040401;
-  --background: #131534;
-  --primary: rgb(73, 130, 237);
+  --background: rgb(39, 39, 39);
+  --background_transparent: rgba(39, 39, 39, 0.8);
+  --primary: rgb(21, 15, 77);
   --primary_transparent: rgba(73, 130, 237, 0.6);
   --secondary: #323fb1;
-  --accent: #bf6fe2;
+  --accent: #437be2;
+  --hover_color: rgb(0, 0, 0);
+  --card_container_color: rgba(36, 72, 127, 0.8);
 }
 
 * {
@@ -36,7 +42,7 @@ html {
 
 body {
   background-color: var(--background);
-  transition: var(--transition_duration);
+  transition: var(--transition_duration) background-color;
   overflow-x: hidden;
 }
 

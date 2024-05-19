@@ -65,6 +65,7 @@ if (isset($_GET['title'])) {
         </div>
     </nav>
 
+    <div class="background-div"></div>
     <main>
         <h2>
             <button title='Go back' id='goBack-btn'>
