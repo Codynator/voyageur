@@ -1,5 +1,6 @@
 /* --- HEADER --- */
 header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,10 +25,32 @@ header {
     font-size: 220%;
     margin-bottom: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 5;
+  }
+}
+
+header:after {
+  opacity: 0;
+  content: "";
+  display: block;
+  z-index: 4;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  transition: var(--transition_duration) opacity;
+}
+
+[data-theme="dark"] {
+  header:after {
+    opacity: 1;
   }
 }
 
 .header-container {
+  position: relative;
+  z-index: 5;
   margin-left: 5vw;
   width: 90vw;
   display: flex;
