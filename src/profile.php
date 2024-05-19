@@ -64,6 +64,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
     </nav>
 
     <main>
+        <div class="background-div"></div>
         <div class="profile-container">
             <div class='profile-header'>
                 <h2>Welcome, <?= $user['first_name']; ?>!</h2>

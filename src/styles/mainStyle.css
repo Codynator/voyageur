@@ -6,7 +6,7 @@
   --text-alt: #fefefb;
   --background: white;
   --background_transparent: rgba(231, 231, 231, 0.8);
-  --primary: rgb(36, 28, 105);
+  --primary: rgb(50, 40, 141);
   --primary_transparent: rgba(36, 28, 105, 0.6);
   --secondary: #23b8b8;
   --accent: #83d8d8;
@@ -42,7 +42,7 @@ html {
 
 body {
   background-color: var(--background);
-  transition: var(--transition_duration);
+  transition: var(--transition_duration) background-color;
   overflow-x: hidden;
 }
 
