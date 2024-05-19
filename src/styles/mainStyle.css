@@ -19,7 +19,7 @@
 }
 
 [data-theme="dark"] {
-  --text: #fefefb;
+  --text: #e0e0e0;
   --text-alt: #040401;
   --background: rgb(39, 39, 39);
   --background_transparent: rgba(39, 39, 39, 0.8);

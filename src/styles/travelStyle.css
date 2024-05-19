@@ -1,91 +1,109 @@
 main {
-    margin-inline: 1rem;
-    margin-block: 4rem;
-    padding: 1rem;
-    box-shadow: 0rem 0rem 1rem var(--text);
-    border-radius: 1rem;
-    font-size: 150%;
-    font-family: "Comfortaa", sans-serif;
-    color: var(--text);
-    transition: var(--transition_duration) color;
+  margin-inline: 1rem;
+  margin-block: 4rem;
+  padding: 1rem;
+  box-shadow: 0rem 0rem 1rem white;
+  border-radius: 1rem;
+  font-size: 150%;
+  font-family: "Comfortaa", sans-serif;
+  color: var(--text);
+  transition: var(--transition_duration) color, var(--transition_duration) background-color;
+  background-color: var(--card_container_color);
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(3px);
+}
+
+.background-div {
+  top: calc(var(--nav_height) * -1);
+  position: fixed;
+  z-index: 1;
+  background-image: url("../../public/pexels-eberhardgross-1421903.jpg");
+  width: 100%;
+  height: calc(100% + var(--nav_height));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h2 {
-    text-align: center;
-    position: relative;
-    font-size: 250%;
-    font-family: "Space Grotesk", sans-serif;
+  text-align: center;
+  position: relative;
+  font-size: 250%;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 h2 button {
-    position: absolute;
-    width: 4em;
-    height: 4em;
-    border: none;
-    border-radius: 100%;
-    background-color: var(--secondary);
-    transition: var(--transition_duration) background-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  border: none;
+  border-radius: 100%;
+  background-color: var(--secondary);
+  transition: var(--transition_duration) background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 > #goBack-btn {
-    left: 0;
+  left: 0;
 }
 
 h2 > form {
-    position: absolute;
-    right: 0;
-    width: 1em;
+  position: absolute;
+  right: 0;
+  width: 1em;
 }
 
 h2 button:hover {
-    background-color: var(--accent);
+  background-color: var(--accent);
 }
 
 h2 button:hover > svg > path {
-    fill: var(--text-alt);
-    transition: var(--transition_duration) fill;
+  fill: var(--text-alt);
+  transition: var(--transition_duration) fill;
 }
 
 .status-par {
-    text-align: center;
-    font-size: 180%;
+  text-align: center;
+  font-size: 180%;
 }
 
 .description-div {
-    text-align: justify;
+  text-align: justify;
 }
 
 .summary-div ul {
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
 
 .summary-div h3 {
-    font-family: "Space Grotesk", sans-serif;
-    margin-top: 1em;
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 1em;
 }
 
-
 @media screen and (max-width: 800px) {
-    h2 button {
-        position: static;
-        width: 100%;
-        border-radius: 1em;
-        margin-bottom: 2rem;
-    }
-    h2 > form {
-        width: 100%;
-        position: static;
-    }
-    main {
-        font-size: 130%;
-    }
-    h2 {
-        font-size: 220%;
-    }
-    .status-par {
-        font-size: 140%;
-    }
+  h2 button {
+    position: static;
+    width: 100%;
+    border-radius: 1em;
+    margin-bottom: 2rem;
+  }
+  h2 > form {
+    width: 100%;
+    position: static;
+  }
+  main {
+    font-size: 120%;
+    margin-inline: 0;
+    border-radius: 0;
+  }
+  h2 {
+    font-size: 220%;
+  }
+  .status-par {
+    font-size: 140%;
+    margin-bottom: .5em;
+  }
 }
