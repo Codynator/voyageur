@@ -12,3 +12,4 @@ Created using XAMPP server (Apache + MariaDB).
 - <https://www.pexels.com/photo/black-mountains-under-the-stars-at-nighttime-355465/>
 - <https://www.pexels.com/photo/photo-of-starry-night-1421903/>
 - <https://www.pexels.com/photo/low-angle-photography-of-trees-under-stars-at-night-1624881/>
+- <https://www.pexels.com/photo/town-on-river-shore-cochem-germany-12323326/>
