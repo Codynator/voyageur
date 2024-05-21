@@ -17,6 +17,8 @@ $user = $result->fetch_assoc();
 
 $favoriteTravelsQuery = "SELECT t.title FROM travels AS t INNER JOIN favorites AS f ON t.id = f.id_travel WHERE f.id_user = " . $_SESSION['user_id'];
 $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
 <body>
     <nav>
         <div class="left-nav">
-            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
             <a href="./offers.php?status=all+inclusive">All Inclusive</a>
             <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>

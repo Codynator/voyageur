@@ -16,6 +16,8 @@ if (isset($_GET['title'])) {
         $favortiesResult = $conn->query($favoritesQuery);
     }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ if (isset($_GET['title'])) {
 <body>
     <nav>
         <div class="left-nav">
-            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
             <a href="./offers.php?status=all+inclusive">All Inclusive</a>
             <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>

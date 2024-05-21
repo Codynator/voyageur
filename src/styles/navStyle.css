@@ -24,7 +24,7 @@ nav {
         color: var(--text);
         text-decoration: none;
         background-color: var(--secondary);
-        border-radius: 2rem;
+        border-radius: 1rem;
         transition: background-color var(--transition_duration), color var(--transition_duration);
     }
 
@@ -44,13 +44,18 @@ nav>div {
     a {
         margin-inline: 1%;
         width: 42%;
+        word-wrap: break-word;
+        text-align: center;
     }
 
     .logo {
         width: fit-content;
-        display: grid;
+        display: flex;
         align-items: center;
+        justify-content: center;
         margin-left: 0;
+        color: white;
+        text-decoration: none;
     }
 
     img {

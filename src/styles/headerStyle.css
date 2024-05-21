@@ -5,13 +5,14 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 60svh;
+  height: calc(100svh - var(--nav_height) - var(--footer_height));
   background-image: url("../../public/pexels-raybilcliff-1507754.jpg");
   background-color: darkcyan;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 3;
+  outline: 1px solid red;
 
   h2 {
     font-family: "Comfortaa", sans-serif;
@@ -136,9 +137,6 @@ header:after {
 @media screen and (min-width: 1000px) {
   .header-container {
     margin-left: 0;
-  }
-  header {
-    height: 50svh;
   }
   .header-container input[type="submit"] {
     height: 5svh;
