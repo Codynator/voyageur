@@ -1,5 +1,5 @@
 <?php
-include ("./connection.php");
+include("./connection.php");
 
 
 session_start();
@@ -17,6 +17,11 @@ $user = $result->fetch_assoc();
 
 $favoriteTravelsQuery = "SELECT t.title FROM travels AS t INNER JOIN favorites AS f ON t.id = f.id_travel WHERE f.id_user = " . $_SESSION['user_id'];
 $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
+
+$ordersQuery = "SELECT o.order_price, o.order_date, o.ammount_of_adults, o.ammount_of_children, t.title FROM orders AS o INNER JOIN travels AS t ON o.travel_id = t.id WHERE o.user_id = " . $_SESSION['user_id'];
+$ordersResult = $conn->query($ordersQuery);
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +41,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
 <body>
     <nav>
         <div class="left-nav">
-            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
             <a href="./offers.php?status=all+inclusive">All Inclusive</a>
             <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>
@@ -52,8 +57,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
                 <div class="menu-content">
                     <button id="theme-btn" title="Change theme">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="var(--text)"
-                                d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8z" />
+                            <path fill="var(--text)" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8z" />
                         </svg>
                     </button>
                     <a href="./main.php">Contact</a>
@@ -80,33 +84,47 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
             </div>
             <div class="profile-favorites">
                 <h3>Your favorites:</h3>
-                <?php if ($favoriteTravelsResult->num_rows > 0): ?>
-                    <?php while ($row = $favoriteTravelsResult->fetch_assoc()): ?>
-                        <?php if ($row && isset($row['title'])): ?>
+                <?php if ($favoriteTravelsResult->num_rows > 0) : ?>
+                    <?php while ($row = $favoriteTravelsResult->fetch_assoc()) : ?>
+                        <?php if ($row && isset($row['title'])) : ?>
                             <a href="./travel.php?title=<?= $row['title']; ?>"><?= $row['title']; ?></a>
                         <?php endif; ?>
                     <?php endwhile; ?>
-
-                <?php else: ?>
+                <?php else : ?>
                     <p>Nothing has been found</p>
                 <?php endif; ?>
             </div>
             <div class="profile-bought-travels">
                 <h3>Purchase history</h3>
+                <div class="orders-container">
+                    <?php if ($ordersResult->num_rows > 0) : ?>
+                        <?php while ($order = $ordersResult->fetch_assoc()) : ?>
+                            <div>
+                                <h4><a href="./travel.php?title=<?= $order['title']; ?>"><?= $order['title']; ?></a></h4>
+                                <ul>
+                                    <li>Price: <b><?= $order['order_price']; ?></b></li>
+                                    <li>Number of adults: <b><?= $order['ammount_of_adults']; ?></b></li>
+                                    <li>Number of children: <b><?= $order['ammount_of_children']; ?></b></li>
+                                    <li>Purchase date: <b><?= $order['order_date'] ?></b></li>
+                                </ul>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <p>Nothing has been found</p>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="profile-btn-container">
                 <form action="./logoutAndDeletionHandler.php" method="POST">
                     <button type="submit" name="btn" value="logout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="m17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z" />
+                            <path fill="currentColor" d="m17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z" />
                         </svg>
                         Logout
                     </button>
                     <button type="button" id="delete-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z" />
+                            <path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6z" />
                         </svg>
                         Delete account
                     </button>
@@ -116,7 +134,7 @@ $favoriteTravelsResult = $conn->query($favoriteTravelsQuery);
                         </label>
                         <button type="submit" name='btn' value="delete">Confirm</button>
                         <button type="button" id="cancel-btn">Cancel</button>
-                        <?php if (isset($_GET['errorMsg'])): ?>
+                        <?php if (isset($_GET['errorMsg'])) : ?>
                             <p><?= $_GET['errorMsg']; ?></p>
                         <?php endif; ?>
                     </div>

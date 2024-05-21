@@ -18,6 +18,8 @@ if (isset($_GET['remove'])) {
     $addQuery = 'INSERT INTO favorites (id_user, id_travel) VALUES (' . $_SESSION['user_id'] . ", $travelId)";
     $conn->query($addQuery);
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>

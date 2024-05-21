@@ -53,11 +53,15 @@ if (isset($_POST['loginBtn'])) {
 
         if (isset($userId)) {
             $_SESSION['user_id'] = $userId;
+            
+            $conn->close();
             header('Location: ./profile.php');
             exit;
         }
     }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +78,7 @@ if (isset($_POST['loginBtn'])) {
 </head>
 <nav>
     <div class="left-nav">
-        <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+        <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
         <a href="./offers.php?status=all+inclusive">All Inclusive</a>
         <a href="./offers.php?status=last+minute">Last Minute</a>
     </div>

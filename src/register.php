@@ -60,6 +60,8 @@ if (isset($_POST['registerBtn'])) {
         }
     }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +78,7 @@ if (isset($_POST['registerBtn'])) {
 </head>
 <nav>
     <div class="left-nav">
-        <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+        <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
         <a href="./offers.php?status=all+inclusive">All Inclusive</a>
         <a href="./offers.php?status=last+minute">Last Minute</a>
     </div>

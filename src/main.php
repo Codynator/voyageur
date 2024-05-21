@@ -18,13 +18,14 @@ $conn->set_charset('utf8');
     <link rel="stylesheet" href="./styles/headerStyle.css">
     <link rel="stylesheet" href="./styles/footerStyle.css">
     <link rel="stylesheet" href="./styles/dialogStyle.css">
+    <link rel="stylesheet" href="./styles/indexStyle.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon.ico">
 </head>
 
 <body>
     <nav>
         <div class="left-nav">
-            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt=""></a>
+            <a href="./main.php" class="logo"><img src="../public/voyageur_logo.png" alt="">Voyageur</a>
             <a href="./offers.php?status=all+inclusive">All Inclusive</a>
             <a href="./offers.php?status=last+minute">Last Minute</a>
         </div>
@@ -194,10 +195,6 @@ $conn->set_charset('utf8');
             </div>
         </div>
     </header>
-
-    <main>
-
-    </main>
 
     <footer>
         <h3>Voyager &copy 2024</h3>

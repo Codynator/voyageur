@@ -5,13 +5,14 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 60svh;
+  height: calc(100svh - var(--nav_height) - var(--footer_height));
   background-image: url("../../public/pexels-raybilcliff-1507754.jpg");
   background-color: darkcyan;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 3;
+  outline: 1px solid red;
 
   h2 {
     font-family: "Comfortaa", sans-serif;
@@ -62,7 +63,7 @@ header:after {
   font-family: "Comfortaa", sans-serif;
   margin-block: 2rem;
   border-radius: 1rem;
-  background-color: rgb(228, 53, 53);
+  background-color: var(--accent);
   border: 0.2rem solid var(--text);
   width: 90vw;
   height: 8svh;
@@ -76,7 +77,7 @@ header:after {
 }
 
 .header-container input[type="submit"]:hover {
-  background-color: color-mix(in srgb, red 50%, var(--text-alt) 50%);
+  background-color: color-mix(in srgb, var(--accent) 50%, var(--text-alt) 50%);
 }
 
 .button-container {
@@ -136,9 +137,6 @@ header:after {
 @media screen and (min-width: 1000px) {
   .header-container {
     margin-left: 0;
-  }
-  header {
-    height: 50svh;
   }
   .header-container input[type="submit"] {
     height: 5svh;

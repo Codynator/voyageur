@@ -11,7 +11,6 @@ main {
     margin: 0.8rem;
     display: grid;
     grid-template-columns: 100%;
-    /* background-color: color-mix(in srgb, var(--primary) 30%, var(--secondary) 70%); */
     background-color: var(--card_container_color);
     border: 0.3rem solid white;
     border-radius: 1rem;

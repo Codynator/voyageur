@@ -31,5 +31,6 @@ if (isset($_POST['btn'])) {
 
 }
 
+$conn->close();
 header('Location: ./main.php');
 exit;
