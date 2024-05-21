@@ -154,6 +154,11 @@ main {
     padding: .5rem;
 }
 
+.orders-container > p {
+    grid-column-start: span 3;
+    text-align: center;
+}
+
 .profile-btn-container {
     display: flex;
     justify-content: center;
