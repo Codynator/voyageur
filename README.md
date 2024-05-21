@@ -6,7 +6,7 @@ Created using XAMPP server (Apache + MariaDB).
 
 ## Instructions
 
-The website has been developed and testes only on XAMPP. In order to use the site first create a database named *voyageur* best with `utf8_general_ci` charset.
+The website has been developed and tested only on XAMPP. In order to use the site first create a database named *voyageur* best with `utf8_general_ci` charset.
 
 The database by default contains two accounts:
 
