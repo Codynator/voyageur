@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 20, 2024 at 09:55 PM
+-- Generation Time: May 21, 2024 at 10:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -131,9 +131,20 @@ CREATE TABLE `orders` (
   `user_id` int(10) NOT NULL,
   `travel_id` int(10) NOT NULL,
   `order_price` decimal(8,2) NOT NULL,
-  `ammount_of_adults` bit(1) NOT NULL DEFAULT b'0',
-  `ammount_of_children` bit(1) NOT NULL DEFAULT b'0'
+  `ammount_of_adults` tinyint(1) NOT NULL DEFAULT 0,
+  `ammount_of_children` tinyint(1) NOT NULL DEFAULT 0,
+  `order_date` date DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `travel_id`, `order_price`, `ammount_of_adults`, `ammount_of_children`, `order_date`) VALUES
+(1, 1, 1, 10999.99, 1, 0, '2024-05-21'),
+(2, 1, 1, 13799.96, 2, 2, '2024-05-21'),
+(3, 1, 1, 14999.95, 5, 0, '2024-05-21'),
+(4, 1, 4, 7604.90, 5, 5, '2024-05-21');
 
 -- --------------------------------------------------------
 
@@ -336,7 +347,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `prices`
