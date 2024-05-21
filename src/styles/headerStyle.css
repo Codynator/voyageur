@@ -63,7 +63,7 @@ header:after {
   font-family: "Comfortaa", sans-serif;
   margin-block: 2rem;
   border-radius: 1rem;
-  background-color: rgb(228, 53, 53);
+  background-color: var(--accent);
   border: 0.2rem solid var(--text);
   width: 90vw;
   height: 8svh;
@@ -77,7 +77,7 @@ header:after {
 }
 
 .header-container input[type="submit"]:hover {
-  background-color: color-mix(in srgb, red 50%, var(--text-alt) 50%);
+  background-color: color-mix(in srgb, var(--accent) 50%, var(--text-alt) 50%);
 }
 
 .button-container {

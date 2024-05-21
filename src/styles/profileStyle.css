@@ -118,6 +118,42 @@ main {
     background-color: var(--accent);
 }
 
+.orders-container {
+    padding: 0.5rem;
+    gap: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.orders-container > div {
+    background-color: var(--card_container_color);
+    border-radius: 1rem;
+    font-size: 85%;
+}
+
+.orders-container > div > h4 {
+    font-size: 100%;
+    background-color: var(--accent);
+    height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    transition: var(--transition_duration) background-color;
+}
+
+.orders-container > div > h4 > a {
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition_duration) color;
+}
+
+.orders-container > div > ul {
+    list-style-type: none;
+    padding: .5rem;
+}
+
 .profile-btn-container {
     display: flex;
     justify-content: center;
@@ -252,6 +288,9 @@ main {
     .profile-container {
         width: 70%;
     }
+    .orders-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -290,6 +329,9 @@ main {
     }
     .profile-container > div:not(.profile-header) {
         margin-bottom: 1rem;
+    }
+    .orders-container {
+        grid-template-columns: 1fr;
     }
 }
 

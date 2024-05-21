@@ -25,11 +25,14 @@ nav {
         text-decoration: none;
         background-color: var(--secondary);
         border-radius: 1rem;
-        transition: background-color var(--transition_duration), color var(--transition_duration);
+        transition: background-color var(--transition_duration),
+         color var(--transition_duration),
+         box-shadow var(--transition_duration);
     }
 
     a:not(.logo):hover {
         background-color: var(--accent);
+        box-shadow: 0 0 1rem var(--accent);
     }
 }
 
@@ -56,6 +59,13 @@ nav>div {
         margin-left: 0;
         color: white;
         text-decoration: none;
+        transition: var(--transition_duration) box-shadow, var(--transition_duration) background-color;
+        padding-right: .5em;
+    }
+
+    .logo:hover {
+        background-color: var(--accent);
+        box-shadow: 0 0 1rem var(--accent);
     }
 
     img {
@@ -83,6 +93,11 @@ nav>div {
         width: calc(var(--nav_height) * 0.7);
         display: grid;
         place-items: center;
+    }
+
+    #theme-btn:hover {
+        background-color: var(--accent);
+        box-shadow: 0 0 1rem var(--accent);
     }
 }
 
@@ -189,5 +204,8 @@ nav>div {
         align-items: center;
         justify-content: right !important;
         border: none !important;
+    }
+    .logo {
+        font-size: calc(var(--nav_height) * .5);
     }
 }
